@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图</title>
+    <script src="../tools/tool.js"></script>
+    <style>
+        body,ul,li{
+            margin: 0;
+            padding: 0;
+        }
+        #outer{
+            width: 520px;
+            height: 400px;
+            margin: 20px auto;
+            background-color: yellowgreen;
+            padding: 10px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        #imgList{
+            list-style-type: none;
+            /* width: 2600px; */
+            position: absolute;
+            left: 0px;
+        }
+        #imgList li{
+            float: left;
+            margin: 0 10px;
+        }
+        img{
+            display: block;
+            width: 500px;
+            height: 400px;
+        }
+        #navDiv{
+            position: absolute;
+            bottom: 15px;
+            /* left: */
+        }
+        #navDiv a{
+            float: left;
+            width: 15px;
+            height: 15px;
+            background-color: red;
+            opacity: 0.5;
+            margin: 0 5px;
+        }
+        #navDiv a:hover{
+            background: black;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            // 定义一个函数用来修改A链接的背景颜色；
+            function setA(){
+                // 判断当前索引是否是最后一张图片；
+                if(index >=imgArr.length-1){
+                    index=0;
+                    //  此时显示的是最后一张图片，通过CSS属性来设置imgList的left为0
+                    imgList.style.left=0;
+                }
+                for(var i=0;i<allA.length;i++){
+                    allA[i].style.backgroundColor="";
+                }
+                // 设置当前显示对应的a；
+                allA[index].style.backgroundColor="black";
+            }
+            // 定义一个定时器的标识；
+            var timer;
+            // 定义一个自动切换图片的函数；
+            function autoChange(){
+                timer=setInterval(function(){
+                    index++;
+                    // 判断索引是否超过最大值；
+                    if(index >imgArr.length-1){
+                        index =0;
+                    }
+                    move(imgList,"left",-520*index,20,function(){
+                        setA();
+                    });
+                },3000);
+            }
+            var imgList=document.getElementById("imgList");
+            var imgArr=document.getElementsByTagName("img");
+            var navDiv=document.getElementById("navDiv");
+            var outer=document.getElementById("outer");
+            var allA=document.getElementsByTagName("a");
+            // 创建一个变量来保存当前显示图片的索引；
+            var index=0;
+            allA[index].style.backgroundColor="black";
+            navDiv.style.left=(outer.clientWidth-navDiv.clientWidth)/2+"px";
+            imgList.style.width=520*imgArr.length+"px";
+            // 为每一个a添加一个单击响应函数；
+            for(var i=0;i<allA.length;i++){
+                // 为每一个a添加一个标识属性；
+                allA[i].num=i;
+                allA[i].onclick=function(){
+                    // 关闭自动播放的定时器；
+                    clearInterval(timer);
+                    index=this.num;
+                    setA();
+                    move(imgList,"left",-520*index,30,function(){
+                        //开启自动切换图片的定时器
+                        autoChange();
+                    });
+                }
+            }
+            autoChange();
+        }    
+    </script>
+</head>
+<body>
+    <div id="outer">
+        <ul id="imgList">
+            <li><img src="../js图片轮播练习/img/01.jpg" alt=""></li>
+            <li><img src="../js图片轮播练习/img/02.jpg" alt=""></li>
+            <li><img src="../js图片轮播练习/img/03.jpg" alt=""></li>
+            <li><img src="../js图片轮播练习/img/04.jpg" alt=""></li>
+            <li><img src="../js图片轮播练习/img/05.jpg" alt=""></li>
+            <li><img src="../js图片轮播练习/img/01.jpg" alt=""></li>
+        </ul>
+        <div id="navDiv">
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+        </div>
+    </div>
+</body>
+</html>

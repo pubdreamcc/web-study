@@ -1,0 +1,7 @@
+.cc {
+  height: 0;
+  width: 0;
+  border-style: dashed;
+  border-width: 50px;
+  border-color: transparent transparent #808080 transparent;
+}

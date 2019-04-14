@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas01</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background: pink;
+        }
+        #cc{
+            background: gray;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="cc" width="300px" height="300px"></canvas>
+    <script>
+        window.onload=function(){
+            // 获取画布元素；
+            var cc=document.querySelector("#cc");
+            // 判断是否支持画笔
+            if(cc.getContext){
+                // 定义一个画笔；
+                var ctx=cc.getContext("2d");
+            }
+            // 定义一个变量；
+            var flag=0;
+            var scale=0;
+            var flagScale=0;
+            ctx.save();
+            ctx.translate(150,150);
+            ctx.beginPath();
+            ctx.fillRect(-50,-50,100,100);
+            ctx.restore();
+            setInterval(function(){
+                flag++;
+                ctx.clearRect(0,0,cc.width,cc.height);
+                ctx.save();
+                ctx.translate(150,150);
+                ctx.rotate(flag*Math.PI/180);
+                if(scale==100){
+                    flagScale=-1;
+                }else if(scale==0){
+                    flagScale=1;
+                }
+                scale+=flagScale;
+                // console.log(scale);
+                ctx.scale(scale/50,scale/50);
+                ctx.beginPath();
+                ctx.fillRect(-50,-50,100,100);
+                ctx.restore();
+            },1000/60);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>兔斯基</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            height: 100%;
+            overflow: hidden;
+        }
+        .tsj{
+            height: 48px;
+            width: 48px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            background: url(img/兔斯基.png) no-repeat;
+            background-position: 0 0;
+            /*steps(x,end/start):end看不到最后一帧，start看不到第一帧*/
+            animation: move 0.8s steps(12,end) infinite;
+        }
+        @keyframes move{
+            from{
+                background-position: 0 0;
+            }
+            to{
+                background-position: -576px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="tsj"></div>
+</body>
+</html>

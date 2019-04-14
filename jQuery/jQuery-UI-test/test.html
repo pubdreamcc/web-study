@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery-UI</title>
+    <link rel="stylesheet" href="jquery-ui.css">
+    <script src="jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script>
+        $(function(){
+            $("#accordion").accordion();
+            $( "#tabs" ).tabs();
+            var dataSource=[
+                "ActionScript",
+                "AppleScript",
+                "Asp",
+                "BASIC",
+                "C",
+                "C++",
+                "Clojure",
+                "COBOL",
+                "ColdFusion",
+                "Erlang",
+                "Fortran",
+                "Groovy",
+                "Haskell",
+                "Java",
+                "JavaScript",
+                "Lisp",
+                "Perl",
+                "PHP",
+                "Python",
+                "Ruby",
+                "Scala",
+                "Scheme"
+            ];
+            
+            $("#autocomplete").autocomplete({
+                source:dataSource
+            });
+
+        })
+    
+    
+    </script>
+</head>
+<body>
+    <!-- Accordion  手风琴-->
+    <h2>Accordion</h2>
+    <div id="accordion">
+        <h3>First</h3>
+        <div>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</div>
+        <h3>Second</h3>
+        <div>Phasellus mattis tincidunt nibh.</div>
+        <h3>Third</h3>
+        <div>Nam dui erat, auctor a, dignissim quis.</div>
+    </div>
+    <!-- Tabs 选项卡-->
+    <h2>Tabs</h2>
+    <div id="tabs">
+        <ul>
+            <li><a href="#tabs-1">First</a></li>
+            <li><a href="#tabs-2">Second</a></li>
+            <li><a href="#tabs-3">Third</a></li>
+        </ul>
+        <div id="tabs-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+        <div id="tabs-2">Phasellus mattis tincidunt nibh. Cras orci urna, blandit id, pretium vel, aliquet ornare, felis. Maecenas scelerisque sem non nisl. Fusce sed lorem in enim dictum bibendum.</div>
+        <div id="tabs-3">Nam dui erat, auctor a, dignissim quis, sollicitudin eu, felis. Pellentesque nisi urna, interdum eget, sagittis et, consequat vestibulum, lacus. Mauris porttitor ullamcorper augue.</div>
+    </div> 
+    <!-- 自动搜索匹配 -->
+    <h2>Autocomplete</h2>
+    <div>
+        <input id="autocomplete" title="type &quot;a&quot;">
+    </div>
+
+</body>
+</html>

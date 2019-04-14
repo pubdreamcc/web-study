@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>登陆</title>
+</head>
+<body>
+    <form action="cc.php" method="post">
+       用户名： <input type="text" name="name" placeholder="请输入你的qq邮箱"><br>
+        密码： <input type="password" name="pwd" placeholder="请输入您的密码"><br>
+        <input type="submit" value="提交">
+    </form>
+    <a href="https://www.baidu.com">baidu</a>
+
+    <input type="button" value="发送请求">
+    <h1></h1>
+    <script>
+       document.querySelector("input[type=button]").onclick=function(){
+        var xhr= new XMLHttpRequest()
+        xhr.open("GET","./cc.php?name=wangzhan&psd=123",true)
+        xhr.send(null)
+        xhr.onload=function(){
+            document.querySelector("h1").innerHTML=xhr.responseText;
+        }
+    
+       }
+    
+    
+    </script>
+</body>
+</html>

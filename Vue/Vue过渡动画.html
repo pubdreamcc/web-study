@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue过渡动画</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        .v-enter,.v-leave-to{
+            opacity: 0;
+           transform: translateX(80px);
+        }
+        /* .v-enter-to,.v-leave{
+            opacity: 1;
+            transform: translateX(0px);
+        } */
+        .v-enter-active,.v-leave-active{
+            transition: all .8s;
+        }
+        .my-enter,.my-leave-to{
+            opacity: 0;
+            transform: translateY(100px);
+        }
+        .my-enter-active,.my-leave-active{
+            transition: all .4s linear;
+        }
+    
+    
+    </style>
+</head>
+<body>
+    <div id="app">
+        <button @click="flag=!flag">测试</button>
+        <button @click=flag1=!flag1>测试1</button>
+        <transition>
+            <h1 v-if="flag">我是一个h1</h1>
+        </transition>
+        <transition name="my"><h2 v-if="flag1">我是一个h2</h2></transition>
+        
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                flag:true,
+                flag1:false
+            },
+            methods: {
+                
+            },
+        })
+    
+    
+    
+    
+    </script>
+</body>
+</html>

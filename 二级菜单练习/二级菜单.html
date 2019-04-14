@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>二级菜单</title>
+    <script src="../tools/tool.js"></script>
+    <style>
+        #outer{
+            /* height: 300px; */
+            width: 100px;
+            /* border: 1px solid black; */
+            margin: 0 auto;
+        }
+        #outer div{
+            height: 20px;
+            overflow: hidden;
+        }
+        #outer .open{
+            height: 100px;
+        }
+        span{
+            display: block;
+            height: 20px;
+            background: blue;
+            color: greenyellow;
+            text-align: center;
+            cursor: pointer;
+        }
+        a{
+            display: block;
+            height: 20px;
+            text-align: center;
+            text-decoration: none;
+            color: black;
+            background-color: gray;
+            /* border: 1px solid yellow; */
+        }
+        a:hover{
+            background: black;
+            color: red;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var menu=document.getElementsByClassName("menu");
+            // 定义一个变量来表示当前默认打开的div
+            var openDiv=menu[0].parentNode;
+            for(var i=0;i<menu.length;i++){
+                menu[i].onclick=function(){
+                    // 定义一个变量显示当前点击的span的父级Div；
+                    var parentDiv=this.parentNode;
+                    toggleMenu(parentDiv);
+                    if(openDiv!=parentDiv && hasClass(openDiv,"open")){
+                       toggleMenu(openDiv);
+                    }
+                    openDiv=parentDiv;
+                }
+            }
+            // 定义一个切换菜单折叠和打开状态的函数；
+            function toggleMenu(obj){
+                var begin=obj.offsetHeight;
+                toggleClass(obj,"open");
+                // 获取切换后parentDiv的高度；
+                var end=obj.offsetHeight;
+                // console.log("begin="+begin+",end="+end);
+                obj.style.height=begin+"px";
+                move(obj,"height",end,5,function(){
+                    //动画执行完毕，消除父级DiV的内联样式；
+                    obj.style.height="";
+                });
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="outer">
+        <div class="info open">
+            <span class="menu">联系人</span>
+            <a href="#">王展</a>
+            <a href="#">王泉</a>
+            <a href="#">张震</a>
+            <a href="#">王三</a>
+        </div>
+        <div class="pro">
+            <span class="menu">公司</span>
+            <a href="#">恒纬祥</a>
+            <a href="#">腾讯</a>
+            <a href="#">百度</a>
+            <a href="#">阿里</a>
+        </div>
+        <div class="address">
+            <span class="menu">地址</span>
+            <a href="#">南山</a>
+            <a href="#">西丽</a>
+            <a href="#">固戍</a>
+            <a href="#">西乡</a>
+        </div>
+    </div>
+</body>
+</html>

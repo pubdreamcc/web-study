@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery事件委派</title>
+    <script src="js/jquery-3.3.1-min.js"></script>
+    <script>
+        $(function(){
+            $("ul").delegate("li","mouseenter",function(){
+                this.style.background="pink";
+                this.style.color="red";
+            })
+            $("button").click(function(){
+                $("ul").undelegate("mouseenter");
+            })
+        })
+    
+    
+    
+    
+    
+    </script>
+</head>
+<body>
+    <ul>
+        <li>li1</li>
+        <li>li2</li>
+        <li>li3</li>
+        <li>li4</li>
+    </ul>
+    <button>点我取消事件委派</button>
+</body>
+</html>

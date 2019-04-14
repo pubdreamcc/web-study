@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <!-- 移动端开发必须要加上的一个meta标签 -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <title>开机动画3D版本</title>
+    <script>
+        window.onload=function(){
+        }
+    </script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        /* 禁止系统出现滚动条 */
+        html,body{
+            height: 100%;
+            overflow: hidden;
+        }
+        .wrap{
+            height: 100%;
+            position: relative;
+            background-color: pink;
+            perspective: 200px;
+        }
+        .wrap > .inner{
+            transform-style: preserve-3d;   
+            height: 100%;        
+        }
+        .wrap > .inner > img,.wrap > .inner > p{
+            width: 40%;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate3d(-50%,-50%,0) rotateY(0deg);
+        }
+        .wrap > .inner > p{
+            text-align: center;
+        }
+        .wrap > .inner > img{
+            margin-top: -50px;
+            animation: move 2s linear infinite;
+        }
+        @keyframes move{
+            form{
+                transform: translate3d(-50%,-50%,0) rotateY(0deg);
+            }
+            to{
+                transform: translate3d(-50%,-50%,0) rotateY(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="inner">
+            <img src="img/nike.jpg" alt="耐克">
+            <p>图片加载中...</p>
+        </div>
+    </div> 
+</body>
+</html>

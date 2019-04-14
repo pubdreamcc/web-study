@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue半场动画</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        .ball{
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: #bfa;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <button @click="flag=!flag">动画</button>
+        <transition @before-enter="beforeEnter"
+                    @enter="enter"
+                    @after-enter="afterEnter">
+            <div class="ball" v-show="flag"></div>
+        </transition>
+    </div>
+    
+
+
+
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                flag:false
+            },
+            methods: {
+                beforeEnter(el){
+                    el.style.transform="translate(0,0)"
+                },
+                enter(el,done){
+                    el.offsetWidth
+                    el.style.transform="translate(150px,450px)"
+                    el.style.transition="all 1s linear"
+                    done()
+                },
+                afterEnter(el){
+                    this.flag=!this.flag
+                    console.log("cc is a new student")
+                } 
+            }
+        })
+    </script>
+</body>
+</html>

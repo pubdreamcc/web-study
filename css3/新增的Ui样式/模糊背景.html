@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <!-- 移动端开发必须要加上的meta标签及相关的属性 -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <title>模糊背景</title>
+    <style>
+        .outer{
+            background: rgba(0, 0, 0, .5);
+            height: 100px;
+            position: relative;
+        }
+        img{
+            margin: 24px 0 0 24px;
+        }
+        .bg{
+            /* 设置背景模糊的div和父级元素一样的大小 */
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            background: url(../../百度首页项目案例/img/logo.png);
+            background-size: 100% 100%;
+            z-index: -1;
+            /*设置整个元素模糊  */
+            filter: blur(8px);
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <img src="../../百度首页项目案例/img/logo.png" alt="百度logo" width="64px" height="64px">
+        <!-- 充当模糊背景的div -->
+        <div class="bg"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>扇形导航</title>
+    <script>
+        window.onload=function(){
+            // 定义一个改变状态的变量
+            var flag=true;
+            // 获取home主键
+            var home=document.getElementsByClassName("home")[0];
+            // 获取所有的img标签；
+            var imgArr=document.getElementsByTagName("img");
+            // 定义每张图片出去的距离；
+            var c=140;
+            // 定义每张图片点击时出现放大和透明变化效果；
+            // 定义一个回调函数，用来处理过渡结束时触发的事件；
+            function fun(){
+                this.style.transform="rotate(-720deg) scale(1)";
+                this.style.opacity=1;
+                this.style.transition="0.3s";
+                this.removeEventListener("transitionend",fun,false);
+            }
+            for(var i=0;i<imgArr.length;i++){
+                imgArr[i].onclick=function(){
+                    this.style.transform="rotate(-720deg) scale(2)";
+                    this.style.opacity=0.1;
+                    this.style.transition="0.5s";
+                    this.addEventListener("transitionend",fun,false);
+                }
+            }
+            // 为home主键设置单击相应函数；
+            home.onclick=function(){
+                if(flag){
+                    home.style.transform="rotate(-720deg)";
+                    for(var i=0;i<imgArr.length;i++){
+                        imgArr[i].style.transform="rotate(-720deg) scale(1)";
+                        imgArr[i].style.transition="1s "+i*0.1+"s";
+                        imgArr[i].style.left=-getPoint(c,90*i/(imgArr.length-1)).left+"px";
+                        imgArr[i].style.top=-getPoint(c,90*i/(imgArr.length-1)).top+"px";
+                    }
+                }else{
+                    home.style.transform="rotate(0deg)";
+                    for(var i=0;i<imgArr.length;i++){
+                        imgArr[i].style.transform="rotate(0deg) scale(1)";
+                        imgArr[i].style.transition="1s "+(imgArr.length-1-i)*0.1+"s";
+                        imgArr[i].style.left=0+"px";
+                        imgArr[i].style.top=0+"px";
+                    }
+                }
+                flag=!flag;           
+            };
+            //定义一个函数用来求每张图片甩出去的位置；
+            function getPoint(c,deg){
+                var x=Math.round(c*Math.sin(deg*Math.PI/180));
+                var y=Math.round(c*Math.cos(deg*Math.PI/180));
+                return {left:x,top:y};  
+            }
+        }
+    </script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            height: 100%;
+            overflow: hidden;
+        }
+        .wrap{
+            right: 15px;
+            bottom: 15px;
+            position: fixed;
+            height: 49px;
+            width: 50px;   
+        } 
+        .wrap > .inner{
+            height: 100%;
+        }  
+        .wrap > .inner > img{
+            position: absolute;
+            left: 0;
+            top: 0;
+            border-radius: 50%;
+        } 
+        .wrap > .home{
+            height: 100%;
+            width: 100%;
+            background: url(img/home.jpg) no-repeat;
+            background-size: 100% 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 1;
+            border-radius: 50%;
+            text-align: center;
+            font: 20px/49px "微软雅黑";
+            transition: 1s;
+        }
+    </style>
+</head>
+<body>
+    <!-- 创建一个外围包围的div -->
+    <div class="wrap">
+        <!-- 创建一个包围导航图片的div -->
+        <div class="inner">
+            <img src="img/full.jpg" alt="全屏">
+            <img src="img/close.jpg" alt="关闭">
+            <img src="img/prev.jpg" alt="后退">
+            <img src="img/open.jpg" alt="打开">
+            <img src="img/ref.jpg" alt="刷新">
+        </div>
+        <!-- 创建一个包含主键的div -->
+        <div class="home">主页</div>
+    </div>
+</body>
+</html>

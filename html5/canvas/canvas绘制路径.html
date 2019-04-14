@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas01</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background: pink;
+        }
+        #cc{
+            background: gray;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            margin: auto;
+        }
+    
+    </style>
+</head>
+<body>
+    <canvas id="cc" width="300" height="300">
+        <span>您的浏览器不支持canvas画布，请您下载最新版本的谷歌浏览器。。</span>
+    </canvas>
+    <script>
+        window.onload=function(){
+            // 获取画布元素；
+            var cc=document.querySelector("#cc");
+            // 判断是否支持画笔
+            if(cc.getContext){
+                // 定义一个画笔；
+                var ctx=cc.getContext("2d");
+            }
+            // ctx.strokeStyle="pink";
+            // ctx.lineWidth=10;
+            // ctx.moveTo(50,50);
+            // ctx.lineTo(50,100);
+            // ctx.lineTo(100,100);
+            // ctx.closePath();
+            // ctx.stroke();
+            // // ctx.beginPath();
+            // ctx.fillStyle="green";
+            // ctx.moveTo(200,200);
+            // ctx.lineTo(200,300);
+            // ctx.lineTo(300,300);
+            // // ctx.closePath();
+            // ctx.stroke();
+            // ctx.fill();
+            // ctx.moveTo(30,30);
+            // ctx.lineTo(30,60);
+            // ctx.lineTo(40,40);
+            // ctx.stroke();
+            // ctx.moveTo(200,200);
+            // ctx.lineTo(200,250);
+            // ctx.closePath();
+            // ctx.stroke();
+            ctx.lineCap="square";
+            ctx.lineWidth=10;
+            ctx.moveTo(50,50);
+            ctx.lineTo(50,200);
+            // ctx.moveTo(100,100);
+            // ctx.lineTo(100,200);
+            // ctx.fill();
+            ctx.stroke();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue实例</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/twitter-bootstrap/3.0.2/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">添加品牌</h3>
+            </div>
+            <div class="panel-body form-inline">
+                <label for="">
+                    ID:
+                    <input type="text" class="form-control" v-model="id">
+                </label>
+                <label for="">
+                    name:
+                    <input type="text" class="form-control" v-model="name" @keyup.f2="add"></label>
+                <input type="button" value="添加" @click="add" class="btn btn-primary">
+                <label for="">
+                    搜素名称关键字:
+                    <input type="text" class="form-control" v-model="keywords" v-focus v-color="'green'">
+                </label>
+            </div>
+        </div>
+        <table class="table table-bordered table-hover">
+            <tr>
+                <td>ID</td>
+                <td>品牌名称</td>
+                <td>操作时间</td>
+                <td>操作</td>
+            </tr>
+            <tr v-for="item in search(keywords)" :key="item.id">
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.time | timeFormat}}</td>
+                <td><a href="#" @click.prevent="del(item.id)">删除</a></td>
+            </tr>
+
+
+
+        </table>
+
+
+
+
+
+
+
+    </div>
+    <div id="app2" v-color='"pink"'>
+
+
+        <p >{{dateNow|dateFormat}}</p>
+    </div>
+
+    <script>
+        Vue.directive("color", {
+            bind:function(el,binding){
+                el.style.color=binding.value;
+            }
+        })
+        Vue.directive("focus", {
+            bind:function(){
+
+            },
+            inserted:function(el){
+                el.focus()
+            },
+            updated:function() {
+                
+            },
+        })
+        Vue.config.keyCodes.f2=113
+        Vue.filter("timeFormat",function(datestr){
+            var dt=new Date(datestr)
+            var y=dt.getFullYear()
+            var m=dt.getMonth()+1
+            var d=dt.getDate()
+            return y+"-"+m+"-"+d
+        })
+        new Vue({
+            el:"#app",
+            data:{
+                id:"",
+                name:"",
+                keywords:"",
+                list:[
+                    {id:1,name:"宝马",time: new Date()},
+                    {id:2,name:"奔驰",time: new Date()}
+                ]
+            },
+            methods: {
+                add(){
+                    var obj={id:this.id,name:this.name,time:new Date()}
+                    this.list.push(obj)
+                    this.id=this.name=''
+                },
+                del(id){
+                    // this.list.some((item,index) => {
+                    //     if(item.id==id){
+                    //         this.list.splice(index,1)
+                    //         return true
+                    //     }
+                    // })
+                  var index=  this.list.findIndex((item) => {
+                        if(item.id==id){
+                            return true
+                        }
+                    })
+                    this.list.splice(index,1)
+                },
+                search(keywords){
+                    var newList=[]
+                    this.list.forEach(item => {
+                        if(item.name.indexOf(keywords)!=-1){
+                            newList.push(item)
+                        }
+                    })
+
+
+
+
+
+                    return newList
+                }
+            }
+        })
+    
+        new Vue({
+            el:"#app2",
+            data:{
+                dateNow:new Date()
+            },
+            filters:{
+                dateFormat:function(dateStr){
+                    var dt=new Date(dateStr)
+                    var y=dt.getFullYear()
+                    var m=dt.getMonth()+1
+                    var d=dt.getDate()
+                    return y+"-"+m+"-"+d+"~~~~~~~~~"
+                }
+            },
+            directives:{
+                color:function(el,binding){
+                    el.style.color=binding.value
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>ref获取DOM元素对象</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    
+    <div id="app">
+        <input type="button" value="获取" @click="getEle">
+        <h1 ref="myh1">我是一个h1</h1>
+        <mycom2 ref="mycom2"></mycom2>
+    </div>
+
+    <template id="tem1">
+        <div>我是一个组件的IDv</div>
+    </template>
+
+    <script>
+
+
+
+
+     var vm=   new Vue({
+            el:"#app",
+            data:{
+
+            },
+            methods: {
+                getEle(){
+                  //console.log( this.$refs.myh1.innerText) ; 
+                  this.$refs.mycom2.show()
+                }
+            },
+            components:{
+                "mycom2":{
+                    template:"#tem1",
+                    data() {
+                        return {
+                            name:"wangzhan"
+                        }
+                    },
+                    methods: {
+                        show(){
+                            console.log("调用了子组件的方法")
+                        }
+                    },
+                }
+            }
+        })
+    
+    
+    </script>
+</body>
+</html>

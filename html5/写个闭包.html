@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>闭包初见</title>
+</head>
+<body>
+    <script>
+        function cc(){
+            var a=9;
+            function fun2(){
+                a++;
+                console.log(a);
+                return a;
+            }
+            return fun2;
+        }
+    //   var l=  cc()();
+      var fun3=cc();
+    fun3();
+    fun3();
+    fun3();
+    fun3();
+    fun3();
+    fun3();
+    fun3();
+    fun3();
+    fun3();
+
+    // 闭包在嵌套的内部函数定义的时候产生，在嵌套的内部函数对象变成垃圾对象的时候闭包销毁
+    </script>
+</body>
+</html>

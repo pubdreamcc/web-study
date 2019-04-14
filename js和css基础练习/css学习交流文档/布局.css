@@ -1,0 +1,31 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+/* .main{
+    width: 500px;
+    height: 300px;
+    background: gray;
+    margin: 0 auto;
+} */
+
+.left{
+    float: left;
+    height: 500px;
+    width: 100px;
+    background: red;
+}
+.midder{
+    float: left;
+    width: 900px;
+    height: 500px;
+    background:gray;
+
+}
+.right{
+ 
+    float: right;
+    height: 500px;
+    width: 500px;
+    background: black;
+}

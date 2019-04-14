@@ -1,0 +1,117 @@
+@import "reset.less";
+
+.progress-mixin(){
+    .wrap{
+        position: absolute;
+        height: 3px;
+        background: #737373;
+        width: 100%;
+        margin-top: 11px;
+        .inner{
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 7px;
+            width: 9px;
+            border-radius: 2px;
+            background: white;
+            margin-top: -2px;
+        }
+    }
+    .deeppink{
+        position: absolute;
+        background: deeppink;
+        // left: 0;
+        margin-top: 11px;
+        width: 0;
+        height: 3px;
+    }
+}
+#wrap{
+    height: 100%;
+    overflow-y: hidden;
+    overflow-x: auto;
+    background: #383838;
+    font-size: 0;
+    .control{
+        min-width: 600px;
+        position: relative;
+        height: 25px;
+        background: #2A2A2A;
+        .btns{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 55px;
+            height: 25px;
+            text-align: center;
+            span{
+                display: inline-block;
+                width: 9px;
+                height: 11px;
+                margin-top: 5px;
+                &:nth-child(1){
+                    margin-right: 10px;
+                }
+            }
+        }
+        &>.progress{
+            position: relative;
+            margin: 0 230px 0 55px;
+            height: 25px;
+            cursor: pointer;
+            .progress-mixin();
+        }
+        .others{
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 230px;
+            height: 25px;
+            &>div{
+                float: left;
+                height: 25px;
+            }
+            .times{
+                font-size: 12px;
+                width: 120px;
+                color: white;
+                line-height: 25px;
+                text-align: center;
+            }
+            .sound{
+                width: 80px;
+                &>div{
+                    float: left;
+                    height: 25px;
+                }
+                .switch{
+                    width: 20px;
+                    text-align: center;
+                    span{
+                        display: inline-block;
+                        width: 12px;
+                        height: 12px;
+                        margin: 5px 8px 5px 0;
+                    }
+                }
+                .progress{
+                    position: relative;
+                    width: 60px;
+                    cursor: pointer;
+                    .progress-mixin();
+                }
+            }
+            .full-screen{
+                width: 30px;
+                text-align: center;
+                span{
+                    display: inline-block;
+                    width: 11px;
+                    height: 11px;
+                    margin: 5px auto;
+                }
+            }
+        }
+    }
+}

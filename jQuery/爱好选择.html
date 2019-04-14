@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>爱好选择按钮小游戏</title>
+    <script src="js/jquery-3.3.1-min.js"></script>
+    <script>
+        $(function(){
+            // 点击全选按钮，上面所有爱好都选上；
+            var $items=$(":checkbox").not(":checkbox:first");
+            $("#allCheck").click(function(){
+                $items.prop("checked",true);
+                $(":checkbox:first").prop("checked",true);
+            })
+            // 点击全不选按钮，上面所有的爱好都不选上；
+            $("#allNotCheck").click(function(){
+                $items.prop("checked",false);
+                $(":checkbox:first").prop("checked",false);
+            })
+            // 点击反选按钮，上面所有的爱好都取反
+            $("#inverse").click(function(){
+                $items.each(function(){
+                    this.checked=!this.checked;
+                });
+                $(":checkbox:first").prop("checked", $items.not(":checked").length===0);
+            })
+            // 点击提交按钮，显示所有选中的爱好的值
+            $("#submit").click(function(){
+                $items.filter(":checked").each(function(){
+                    console.log(this.value);
+                });
+            })
+            // 点击全选或全不选，下面所有的爱好全部选中或者全不选中
+            $(":checkbox:first").click(function(){
+                $items.prop("checked",this.checked);
+            })
+            // 点击下面所有的爱好选项，上面的全选或全不选需要同步信息
+            $items.click(function(){
+                $(":checkbox:first").prop("checked",$items.not(":checked").length===0);                
+            })
+        })
+    
+    
+    </script>
+</head>
+<body>
+    <form action="javascript:;">
+        您的爱好是？：<input type="checkbox" value="">全选/全不选<br>
+        <input type="checkbox" name="hobby" id="" value="lanq">篮球
+        <input type="checkbox" name="hobby" id="" value="zuq">足球
+        <input type="checkbox" name="hobby" id="" value="ppq">乒乓球
+        <input type="checkbox" name="hobby" id="" value="ymq">羽毛球<br>
+        <input type="button" value="全选" id="allCheck">
+        <input type="button" value="全不选" id="allNotCheck">
+        <input type="button" value="反选" id="inverse">
+        <input type="submit" value="提交" id="submit">
+    </form>
+</body>
+</html>

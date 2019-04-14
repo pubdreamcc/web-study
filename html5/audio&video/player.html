@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>视频播放器</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/iconfont.css">
+</head>
+<body>
+    <div id="wrap">
+        <video src="audio&video/Anchor Glass Cows.mp4"></video>
+        <div class="control">
+            <div class="btns">
+                <span class="start iconfont">&#xeed1;</span>
+                <span class="stop iconfont">&#xe810;</span>
+            </div>
+            <div class="progress">
+                <div class="wrap">
+                    <div class="inner"></div>
+                </div>
+                <div class="deeppink"></div>
+            </div>
+            <div class="others">
+                <div class="times">
+                    <span class="now">00:00:00</span>/<span class="all">00:00:00</span>
+                </div>
+                <div class="sound">
+                    <div class="switch">
+                        <span class="iconfont">&#xe87a;</span>
+                    </div>
+                    <div class="progress">
+                        <div class="wrap">
+                            <div class="inner"></div>
+                        </div>
+                        <div class="deeppink"></div>                   
+                    </div>  
+                </div>
+                <div class="full-screen">
+                    <span class="iconfont">&#xe62c;</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/index.js"></script>
+    <script>
+        window.onload=function(){
+            var flag=0;
+            var timer=0;
+            var inner=document.querySelector(".control > .progress > .wrap > .inner");
+            var video=document.querySelector("video");
+            var control=document.querySelector("#wrap > .control");
+            var deeppink=document.querySelector(".control > .progress > .deeppink");
+            var inner2=document.querySelector(".sound > .progress .inner");
+            var deeppink2=document.querySelector(".sound > .progress .deeppink");
+            var start=document.querySelector(".control > .btns > .start");
+            var stop=document.querySelector(".control > .btns > .stop");
+            var progress=document.querySelector(".control > .progress");
+            var nowSpan=document.querySelector(".control > .others .now");
+            var allSpan=document.querySelector(".control > .others .all");
+            var switchSpan=document.querySelector(".control > .others .switch span");
+            video.width=document.documentElement.clientWidth;
+            video.height=document.documentElement.clientHeight-control.offsetHeight;
+            window.onresize=function(){
+                video.width=document.documentElement.clientWidth;
+                video.height=document.documentElement.clientHeight-control.offsetHeight;
+            }
+            // 进度条滑动小滑块的逻辑；
+            var callback={
+                move:function(){
+                    deeppink.style.width=inner.offsetLeft+"px";
+                    var scale=inner.offsetLeft/(inner.parentNode.clientWidth-inner.offsetWidth);
+                    video.currentTime=video.duration*scale;
+                    nowSpan.innerHTML=changeTime(video.currentTime);
+                }
+            };
+            $.drag(inner,callback);
+            // 音量条滑动小滑块的逻辑；
+            var callback2={
+                move:function(){
+                    deeppink2.style.width=inner2.offsetLeft+"px";
+                    var scale=inner2.offsetLeft/(inner2.parentNode.clientWidth-inner2.offsetWidth);
+                    flag=scale;
+                    video.volume=scale;
+                    if(video.volume===0){
+                        video.muted=true;
+                    }else{
+                        video.muted=false
+                    }
+                }
+            };
+            $.drag(inner2,callback2);
+            // 执行播放功能；
+            player();
+            // 播放器功能区；
+            function player(){
+                // 音量按钮的逻辑；
+                switchSpan.onclick=function(){
+                    if(video.muted){
+                        inner2.style.left=deeppink2.style.width=(inner2.parentNode.clientWidth-inner2.offsetWidth)+"px"; 
+                        video.muted=false; 
+                        video.volume=1;                      
+                    }else{
+                        inner2.style.left=deeppink2.style.width=0+"px";
+                        video.muted=true;
+                        video.volume=0;
+                    }
+                }
+
+                inner2.style.left=deeppink2.style.width=inner2.parentNode.clientWidth-inner2.offsetWidth+"px";
+                //时间表的逻辑；
+                allSpan.innerHTML=changeTime(video.duration);
+                // 开始按钮的逻辑；
+                start.onclick=function(){
+                    video.play();
+                    timer=setInterval(function(){
+                        nowSpan.innerHTML=changeTime(video.currentTime);
+                        inner.style.left=deeppink.style.width=(video.currentTime/video.duration)*(inner.parentNode.clientWidth-inner.offsetWidth)+"px";
+                    },100);
+                }
+                // 停止按钮的逻辑；
+                stop.onclick=function(){
+                    video.pause();
+                    clearInterval(timer);
+                }
+                // 点击进度条的逻辑处理；
+                progress.onclick=function(event){
+                    event=event||window.event;
+                    video.play();
+                    timer=setInterval(function(){
+                        nowSpan.innerHTML=changeTime(video.currentTime);
+                        inner.style.left=deeppink.style.width=(video.currentTime/video.duration)*(inner.parentNode.clientWidth-inner.offsetWidth)+"px";
+                    },100);
+                    video.currentTime=video.duration*(event.clientX-progress.offsetLeft)/(inner.parentNode.clientWidth-inner.offsetWidth);
+                }
+            }
+            // 定义一个转换时间格式的函数（工具类）；
+            function changeTime(time){
+                time=parseInt(time);
+                var h=toZero(Math.floor(time/3600));
+                var m=toZero(Math.floor(time%3600/60));
+                var s=toZero(time%3600%60);
+                return h+":"+m+":"+s;
+
+            }
+            // 定义一个加零的函数；
+            function toZero(num){
+                var val="";
+                if(num<10){
+                    val="0"+num;
+                }else{
+                    val=val+num;
+                }
+                return val;
+            }
+
+
+        }
+    
+    
+    
+    </script>
+</body>
+</html>

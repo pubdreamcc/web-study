@@ -1,0 +1,49 @@
+<!-- 全局组件 -->
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue全局组件</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <mycom></mycom>
+        <mycom2></mycom2>
+
+
+    </div>
+    <div id="app2">
+        <login></login>
+
+
+    </div>
+    <template id="tem1">
+        <h1>这是在外面定义的一个私有组件</h1>
+    </template>
+    <script>
+     var com1=  Vue.extend({
+            template:"<h1>这是我创建的一个全局组件</h1>"
+        })
+        Vue.component("mycom",com1 )
+        Vue.component("mycom2", {
+            template:"<div>这是直接使用vuecomponent创建出来的组件</div>"
+        })
+        new Vue({
+            el:"#app"
+        })
+        new Vue({
+            el:"#app2",
+            data:{},
+            methods: {
+                
+            },
+            components:{
+                login:{
+                    template:"#tem1"
+                }
+            }
+        })
+    </script>
+</body>
+</html>

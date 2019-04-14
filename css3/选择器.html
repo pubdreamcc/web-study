@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>css3选择器</title>
+    <style>
+        a{
+            text-decoration: none;
+            color: deeppink;
+            font-size: 18px;
+        }
+        div{
+            width: 300px;
+            height: 300px;
+            text-align: center;
+            line-height: 300px;
+            font-size: 26px;
+            background: pink;
+            display: none;
+        }
+        :target{
+            display: block;
+        }   
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        a:link{
+            font-size: 10px;
+        }
+        a:visited{
+            /* font-size: 60px; */
+            color: pink;
+        }
+        a:hover{
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <a href="#cc">这是cc</a>
+    <a href="#cc1">这是cc1</a>
+    <a href="#cc2">这是cc2</a>
+    <div id="cc">cc</div>
+    <div id="cc1">cc1</div>
+    <div id="cc2">cc2</div>
+    <a href="#1">链接一</a>
+    <a href="#2">链接二</a>
+    <a href="#3">链接三</a>
+    <a href="#4">链接四</a>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>结构性伪类</title>
+    <style>
+        /* nth-child() 系列
+           nth-of-type()系列
+        
+           nth-of-type以元素为中心，对类名无效；
+        
+        
+        */
+        *{
+            margin: 0;
+            padding: 0;
+        }
+         p:nth-last-of-type(1){
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <p>p1</p>
+        <p>p</p>
+        <li>5</li>
+    </ul>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>5</li>
+        <p>p</p>
+    </ul>
+</body>
+</html>

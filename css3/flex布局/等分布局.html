@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>等分布局</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wrap{
+            height: 300px;
+            width: 400px;
+            border: 1px solid black;
+            margin: 100px auto;
+            display: flex;
+        }
+        .wrap > .items{
+            height: 50px;
+            /* width: 50px; */
+            background: pink;
+            /* flex-grow: 1;
+            flex-basis: 0;
+            flex-shrink: 1; 
+            flex简写属性flex :1 与上面三个样式等价；
+            */
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="items">1</div>
+        <div class="items">22</div>
+        <div class="items">333</div>
+        <div class="items">4333</div>
+        <div class="items">555</div>
+    </div>
+</body>
+</html>

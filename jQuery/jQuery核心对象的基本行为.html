@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery核心对象的基本行为</title>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.js"></script>
+    <script>
+        $(function(){
+            // 打印输出所有的button DOM元素对象的个数；
+            // jQuery对象中包含是多个DOM元素对象
+            var cc=$("button")
+            console.log($("button").length)
+            console.log(cc[2].innerHTML)
+
+            // cc.each(function(){
+            //     console.log(this.innerHTML)
+            // })
+            cc.each(function(index,domEle){
+                console.log(index,domEle.innerHTML)
+            })
+            // index() 得到元素在兄弟元素中的位置下标，默认是从零开始
+            console.log($("#three").index())
+        })
+    
+    </script>
+</head>
+<body>
+    <button>测试1</button>
+    <button>测试2</button>
+    <button>测试3</button>
+    <button>测试4</button>
+    <button>测试5</button>
+    <button id="three">测试6</button>
+</body>
+</html>

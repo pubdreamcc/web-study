@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>flex布局</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wrap{
+            width: 400px;
+            height: 300px;
+            border: 1px solid black;
+            margin: 200px auto;
+            /* display: flex; */
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: reverse;
+            -webkit-box-pack: center;
+            -webkit-box-align: center;
+        }
+        .wrap > .items{
+            width: 50px;
+            height: 50px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="items">1</div>
+        <div class="items">2</div>
+        <div class="items">3</div>
+        <div class="items">4</div>
+        <div class="items">5</div>
+    </div>
+</body>
+</html>

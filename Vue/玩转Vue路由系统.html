@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>玩转Vue路由</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue-router.js"></script> -->
+    <script src="https://unpkg.com/vue-router@2.0.0/dist/vue-router.js"></script>
+    <style>
+        .myactive{
+            color: red;
+        }
+    
+    
+    
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- <a href="#/login">登陆</a>
+        <a href="#/register">注册</a> -->
+        <router-link to="/login">登陆</router-link>
+        <router-link to="/register">注册</router-link>
+        <router-view></router-view>
+    </div>
+
+
+
+    <script>
+        var login={
+            template:"<h1>登陆组件</h1>"
+        }
+        var register={
+            template:"<h1>注册组件</h1>"
+        }
+     var router = new VueRouter({
+         linkActiveClass:"myactive",
+
+        routes: [
+            {path:"/",redirect:"/login"},
+            {path:"/login",component:login},
+            {path:"/register",component:register}
+        ]
+    })
+
+
+
+    new Vue({
+        el:"#app",
+        data:{
+
+        },
+        router: router
+    })
+    
+    
+    
+    </script>
+   
+</body>
+</html>

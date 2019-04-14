@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue生命周期函数</title>
+    <!-- 引入核心Vue函数 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>{{name}}</p>
+    </div>
+    <script>
+        var vm=new Vue({
+            el: "#app",
+            data:{
+                name:"wangzhan",
+                age: 19
+            },
+            methods: {
+                sayName:function(){
+                    console.log(this.name)
+                }
+            },
+            beforeCreate() {
+               console.log(this.age )
+            },
+            created() {
+                console.log(this.name)
+            },
+            beforeMount() {
+                console.log(document.querySelector("p").innerHTML)
+            },
+            mounted() {
+                console.log(document.querySelector("p").innerHTML)
+            },
+        })
+    
+    
+    
+    
+    
+    </script>
+</body>
+</html>

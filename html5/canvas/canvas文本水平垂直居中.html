@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas01</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background: pink;
+        }
+        #cc{
+            background: gray;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            margin: auto;
+        }
+    
+    </style>
+</head>
+<body>
+    <canvas id="cc" width="300px" height="300px"></canvas>
+    <script>
+        window.onload=function(){
+            // 获取画布元素；
+            var cc=document.querySelector("#cc");
+            // 判断是否支持画笔
+            if(cc.getContext){
+                // 定义一个画笔；
+                var ctx=cc.getContext("2d");
+                // ctx.fillStyle="black";
+                ctx.font="60px sans-serif";
+                ctx.textBaseline="middle";
+                var w=ctx.measureText("贾乃亮").width;
+                ctx.fillText("贾乃亮",(cc.width-w)/2,(cc.height-60)/2);
+            }
+        }
+    </script>
+</body>
+</html>

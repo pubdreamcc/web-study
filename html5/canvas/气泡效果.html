@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas实现气泡效果</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            height: 100%;
+            overflow: hidden;
+            background: gray;
+        }
+        canvas{
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            background: white;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var oc=document.querySelector("canvas");
+            if(oc.getContext){
+                var ctx=oc.getContext("2d");
+                // 定义一个数组，用来保存canvas中各个圆的信息；
+                var arr=[];
+                //随机取出数组中的圆，绘制在canvas中；
+                setInterval(function(){
+                    for(var i=0;i<arr.length;i++){
+                        arr[i].r++;
+                        arr[i].apl-=0.01;
+                        if(arr[i].apl<=0){
+                            arr.splice(i,1);
+                        }
+                    }
+                    ctx.clearRect(0,0,oc.width,oc.height);
+                    for(var i=0;i<arr.length;i++){
+                        ctx.save();
+                        ctx.fillStyle="rgba("+arr[i].red+","+arr[i].green+","+arr[i].blue+","+arr[i].apl+")";
+                        ctx.beginPath();
+                        ctx.arc(arr[i].x,arr[i].y,arr[i].r,0,2*Math.PI);
+                        ctx.fill();
+                        ctx.restore();
+                    }
+                },1000/60);
+                // 向数组中随机注入圆的信息；
+                setInterval(function(){
+                    var red=Math.round(Math.random()*255);
+                    var green=Math.round(Math.random()*255);
+                    var blue=Math.round(Math.random()*255);
+                    var apl=1;
+                    var x=Math.random()*oc.width;
+                    var y=Math.random()*oc.height;
+                    var r=10;
+                    arr.push(
+                        {
+                            red:red,
+                            green:green,
+                            blue:blue,
+                            apl:apl,
+                            x:x,
+                            y:y,
+                            r:r
+                        }
+                    );
+                },50);
+            }
+        }
+    </script>
+</head>
+<body>
+    <canvas width="400" height="400"></canvas>
+</body>
+</html>

@@ -1,0 +1,21 @@
+.sjx(@_,@h,@c){
+    height: 0;
+    width: 0;
+    border-style: dashed;
+}
+.sjx(R,@h,@c){
+    border-width: @h;
+    border-color: transparent transparent transparent @c;
+}
+.sjx(L,@h,@c){
+    border-width: @h;
+    border-color: transparent @c transparent transparent;
+}
+.sjx(T,@h,@c){
+    border-width: @h;
+    border-color: transparent transparent @c transparent ;
+}
+.sjx(B,@h,@c){
+    border-width: @h;
+    border-color: @c transparent transparent transparent;
+}

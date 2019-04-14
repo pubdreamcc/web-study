@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>鼠标滚乱事件</title>
+    <style>
+      #box1{
+          width: 100px;
+          height: 100px;
+          background:green;
+      }
+    </style>
+    <script>
+       window.onload=function(){
+           var box1=document.getElementById("box1");
+           box1.onmousewheel=function(event){
+               event=event|| window.event;
+              // alert(event.detail);
+              if(event.wheelDelta>0 || event.detail<0){
+                //  alert("向上滚");
+                box1.style.height=box1.clientHeight-10+"px";
+              }else{
+                 // alert("向下滚");
+                  box1.style.height=box1.clientHeight+10+"px";
+              }
+                event.preventDefault && event.preventDefault();
+                return false;
+           }
+          box1.addEventListener("DOMMouseScroll",box1.onmousewheel,false); 
+       }
+    
+    </script>
+</head>
+<body style="height: 1000px;">
+   <div id="box1"></div>
+</body>
+</html>

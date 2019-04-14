@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue组件案列</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/twitter-bootstrap/3.0.2/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <mycom1 @func123="pushContent"></mycom1>
+        
+        <ul class="list-group">
+            <li class="list-group-item" v-for="item in list" :key="item.id">
+                <span class="badge"> 评论人：{{item.user}}</span>
+                {{item.content}}
+            </li>
+        </ul>
+        
+    </div>
+    <template id="tem1">
+        <div>
+            <div class="form-group">
+                评论人：
+                <input type="text" class="form-control" v-model="name">
+            </div>
+            <div class="form-group">
+                内容：
+                <input type="text" class="form-control" v-model="content">
+            </div>
+            <div class="form-group">
+                <input type="button" value="提交" class="btn btn-primary" @click="addContent"> 
+            </div>
+        </div>
+    </template>
+
+    <script>
+        var component={
+            template:"#tem1",
+            data(){
+                return {
+                    name:"",
+                    content:""
+                }
+            },
+            methods: {
+                addContent(){
+                        var obj= {
+                            id: Date.now(),
+                            user:this.name,
+                            content:this.content
+
+                        }
+                       this.$emit("func123",obj) 
+                       this.name=this.content=""
+                    }
+                }
+            
+        }
+
+
+
+        new Vue({
+            el:"#app",
+            data:{
+                list:[
+                    {id:Date.now(),user:"李白",content:"天生我才必有用"},
+                    {id:Date.now(),user:"杜甫",content:"我只横刀向天笑"},
+                    {id:Date.now(),user:"王展",content:"我们都是一家人"}
+                ]
+            },
+            components:{
+                "mycom1":component
+            },
+            methods:{
+                pushContent(d){
+                    this.list.unshift(d)
+                }
+            }
+        })
+    
+    
+    
+    </script>
+</body>
+</html>

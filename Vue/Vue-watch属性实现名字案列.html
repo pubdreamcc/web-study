@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue名字案列</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="firstname">+
+        <input type="text" v-model="lastname">=
+        <input type="text" v-model="fullname">
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                firstname:"",
+                lastname:"",
+                fullname:""
+            },
+            // watch属性能够监听data中的属性的变化，一变化就会促发相应的函数
+            watch: {
+                firstname:function(){
+                    this.fullname=this.firstname+"-"+this.lastname
+                },
+                lastname:function(){
+                    this.fullname=this.firstname+"-"+this.lastname
+                }
+
+            }
+        })
+    </script>
+</body>
+</html>

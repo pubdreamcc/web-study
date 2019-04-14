@@ -1,0 +1,15 @@
+(function(){
+    $.fn.extend({
+        checkAll:function(){
+            this.prop("checked",true);
+        },
+        uncheckAll:function(){
+            this.prop("checked",false);
+        },
+        reverseCheck:function(){
+            this.each(function(){
+                this.checked=!this.checked;
+            })
+        }        
+    })
+})();

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>json</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .tt{
+            /* float: left; */
+            /* overflow: hidden; */
+            height: 100px;
+            width: 100px;
+            /* padding-top: 20px; */
+            background: black;
+        }
+        .tt::before{
+            content: "";
+            display: table;
+        }
+        .cc{
+            width: 50px;
+            height: 50px;
+            background-color: red;
+           /* float: left; */
+            margin: 20px 0;
+        }
+    </style>
+    <script>
+        var str='{"name":"wangzhan","age":18,"gender":"男"}';
+        // var cc=JSON.parse(str);
+        // console.log(cc.age);
+        var cc={
+            age: 19,
+            name: "wangzhan",
+            gender: "女"
+        }
+        var tt=JSON.stringify(cc);
+        console.log(tt)
+    </script>
+</head>
+<body>
+    <div class="tt">
+        <div class="cc"></div>
+    </div>
+</body>
+</html>

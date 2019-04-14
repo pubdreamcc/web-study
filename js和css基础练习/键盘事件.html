@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>键盘事件</title>
+    <script>
+        window.onload=function(){
+            document.onkeydown=function(event){
+                event=event||window.event;
+                var box1=document.getElementById("box1");
+               // 判断上下左右那个按键被按下；
+                // 左： 37 ，上： 38 ，右：39 ；下： 40；
+                // if(event.keyCode===37){
+                //     box1.style.left=box1.offsetLeft-10+"px";
+                // }else if(event.keyCode===38){
+                //     box1.style.top=box1.offsetTop-10+"px";
+                // }else if(event.keyCode===39){
+                //     box1.style.left=box1.offsetLeft+10+"px";
+                // }else if(event.keyCode===40){
+                //     box1.style.top=box1.offsetTop+10+"px";
+                // }
+                var speed =10;
+                if(event.ctrlKey){
+                    speed=50;
+                }
+                switch(event.keyCode){
+                    case 37:
+                    box1.style.left=box1.offsetLeft-speed+"px";
+                    break;
+                    case 38:
+                    box1.style.top=box1.offsetTop-speed+"px";
+                    break;
+                    case 39:
+                    box1.style.left=box1.offsetLeft+speed+"px";
+                    break;
+                    case 40:
+                    box1.style.top=box1.offsetTop+speed+"px";
+                    break;
+                }
+            }   
+        }
+    
+    </script>
+</head>
+<body>
+    <div id="box1" style="width:100px; height:100px; background-color: red; position: absolute;"></div>
+</body>
+</html>

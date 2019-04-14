@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas01</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background: gray;
+        }
+        #cc{
+            background: white;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            margin: auto;
+        }
+    
+    </style>
+</head>
+<body>
+    <canvas id="cc" width="600" height="600"></canvas>
+    <script>
+        window.onload=function(){
+            // 获取画布元素；
+            var canvas=document.querySelector("#cc");
+            // 判断是否支持画笔
+            if(canvas.getContext){
+                // 定义一个画笔；
+                var ctx=canvas.getContext("2d");
+            }
+            canvas.onmousedown=function(event){
+                event=event || window.event;
+                ctx.beginPath();
+                ctx.moveTo(event.clientX-canvas.offsetLeft,event.clientY-canvas.offsetTop);
+                document.onmousemove=function(event){
+                    ctx.save();
+                    ctx.strokeStyle="green";
+                    event=event || window.event;
+                    ctx.lineTo(event.clientX-canvas.offsetLeft,event.clientY-canvas.offsetTop);
+                    ctx.stroke();
+                    ctx.restore();
+                }
+                document.onmouseup=function(){
+                    document.onmouseup=document.onmousemove=null;
+                }
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>

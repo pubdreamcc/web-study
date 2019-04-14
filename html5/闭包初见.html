@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>闭包初见</title>
+</head>
+<body>
+    <button>测试1</button>
+    <button>测试2</button>
+    <button>测试3</button>
+    <script>
+        window.onload=function(){
+            var buts=document.querySelectorAll("button");
+            for(var i=0,length=buts.length;i<length;i++){
+                (function(i){
+                    buts[i].onclick=function(){
+                        alert("第"+(i+1)+"个按钮");
+                    }
+                })(i);
+            }
+        }
+    </script>
+</body>
+</html>

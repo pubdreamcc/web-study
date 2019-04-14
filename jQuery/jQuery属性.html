@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery属性</title>
+    <script src="js/jquery-3.3.1-min.js"></script>
+    <script>
+        $(function(){
+            // 获取text类型的input标签的value值
+            // $(":text").val("ccwang")
+            // console.log($(":text").val())
+              // $(":checkbox:last").attr("checked","checked")
+           // $(":checkbox:last").prop("checked",true)
+           $(":radio:last").removeAttr("type")
+
+        })
+    </script>
+</head>
+<body>
+    <input type="text" value="atguigu">
+    <input type="radio" name="sex">男
+    <input type="radio" name="sex">女
+    <input type="checkbox" name="happy" value="lanqiu">篮球
+    <input type="checkbox" name="happy" value="zuqiu">足球
+    <input type="email">
+    <input type="submit" value="提交">
+    <input type="reset" value="重置">
+</body>
+</html>

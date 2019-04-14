@@ -1,0 +1,356 @@
+body ,ul ,li{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font: 14px/1.5 "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;
+    height: 2500px;
+}
+ul{
+    list-style-type: none;
+}
+.topbar{
+    /* border:1px solid black; */
+    /* width: 1349px; */
+    height:40px;
+    background-color: black;
+}
+a{
+    text-decoration: none;
+}
+.container{
+    margin:0 auto;
+    /* border:1px solid black; */
+    width: 1226px;
+}
+.container::before,.container::after,.clearfix::before,.clearfix::after{
+    content: " ";
+    display: table;
+}
+.container::after,.clearfix::after{
+    clear: both;
+}
+.topbar a{
+    color:#b0b0b0;
+    font-size:12px;
+}
+.topbar a:hover{
+    color: white;
+}
+.topbar-nav{
+    float:left;
+   height: 40px;
+   line-height: 40px;
+   font-size: 0;
+}
+.topbar-cart,.topbar-info{
+    float:right;
+}
+.topbar-nav span{
+    font-size:12px;
+    color:#424242;
+    font-family: sans-serif;
+    margin:0.5em;   
+}
+.topbar-cart a{
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    width: 120px;
+    background-color:#424242
+}
+.topbar-cart span{
+    margin-left: -4px;
+    font-size:12px;
+}
+.topbar-cart a:hover{
+    background-color:white;
+    color:#ff6700;
+}
+.topbar-cart i{
+    font-size: 20px;
+    line-height: 20px;
+    margin-right: 4px;
+    vertical-align: -4px;
+
+}
+.topbar-info a{
+    float: left;
+    padding: 0 5px;
+    height: 40px;
+    line-height: 40px;
+    
+}
+.topbar-info{
+    margin-right: 15px;
+}
+.topbar-info span{
+    float:left;
+    font-family: sans-serif;
+    font-size: 12px;
+    color: #424242;
+    height: 40px;
+    line-height: 40px;
+}
+.topbar-info .sep{
+    padding: 0 10px;
+}
+/* header */
+.header{
+    height: 100px;
+}
+.header-logo{
+    float: left;
+    /* border:1px solid black; */
+    width: 62px;
+    margin-top: 22px;
+    /* height: 55px; */
+}
+/* header-nav */
+.header-nav{
+    float: left;
+    /* border:1px solid black; */
+    width:820px;
+    height: 100px;
+}
+.header-nav .nav-list{
+    width:820px;
+    height: 88px;
+    font-size: 16px;
+    padding: 12px 0 0 30px;
+    
+}
+.header-nav .nav-list .nav-category{
+    float: left; 
+    width: 127px;
+    padding: 0 15px 0 0; 
+}
+.header-nav .nav-list .nav-category a{
+    display:block;
+    text-align: right;
+    padding: 26px 0 38px;
+    color:#333;
+}
+.header-nav .nav-list .nav-item{
+    float: left;
+}
+.header-nav .nav-list .nav-item a{
+    display:block;
+    padding: 26px 10px 38px;
+    color:#333;
+}
+.header-nav .nav-list .nav-item a:hover{
+    color:#ff6700;
+}
+.header-search{
+    float: right;
+    /* border:1px solid black; */
+    width: 296px;
+    height: 50px;
+    margin-top:25px;
+}
+.header-logo a{
+    display: block;
+    width: 55px;
+    height: 55px;
+    background: #ff6700 url("../image/mi-logo.png") no-repeat 50% 50%;
+
+}
+.header-logo .lr{
+    text-align:left;
+    text-indent: -9992em;
+}
+.header-search .search-form{
+   position: relative;
+    width:296px;
+    height: 50px;
+    display:block;
+}
+.header-search .search-form .search-text{
+    position: absolute;
+    top: 0;
+    right: 51px;
+    display:block;
+    width:245px;
+    height: 50px;
+    line-height: 50px;
+    outline: 0;
+    border: 1px solid #e0e0e0;
+
+}
+.header-search .search-form .search-btn{
+    position: absolute;
+    top:0;
+    right: 0;
+    display:block;
+    width: 52px;
+    height: 50px;
+    font-size:24px;
+    border: 1px solid #e0e0e0;
+    outline: 0;
+    background:#fff;
+    color:#616161;
+    line-height: 24px;
+}
+.header-search .search-form .search-btn:hover{
+    background: #ff6700;
+    color: #fff;
+}
+.seckill{
+    background:#f5f5f5;
+}
+.seckill-head{
+    background:url("../image/seckill-head.jpg") no-repeat 50% 0;
+    height:170px;
+    margin-top:19px;
+}
+.seckill-nav{
+    margin:-68px 0 22px;
+}
+.seckill-nav ul{
+    background:#414141;
+    height: 68px;
+}
+.seckill-nav ul li{
+    display: block;
+    float: left;
+    width: 20%;
+    height: 68px;
+    line-height: 68px;
+    text-align: center;
+    color:#fff;
+    cursor: pointer;
+}
+.seckill-nav ul li em{
+    display: inline-block;
+    font-size: 18px;
+    font-style: normal;
+    vertical-align: middle;
+    line-height: 1;
+    margin-left: 30px;
+ }
+ .seckill-nav ul li span{
+    display:inline-block;
+    text-align: left;
+    font-size: 14px;
+    line-height: 1;
+    vertical-align: middle;
+    margin-left: 15px;
+}
+.seckill-nav .active{
+    background: #f1393a;
+}
+/* .seckill-nav ul li em{
+   display: inline-block;
+   font-size: 18px;
+   font-style: normal;
+   vertical-align: middle;
+   line-height: 1;
+   margin-left: 30px;
+} */
+/* .seckill-nav ul li span{
+    display:inline-block;
+    text-align: left;
+    font-size: 14px;
+    line-height: 1;
+    vertical-align: middle;
+    margin-left: 15px;
+} */
+.seckill-nav ul li span em{
+    display:inline-block;
+    font-style: normal;
+    font-size: 14px;
+    margin-left: 0;
+    text-align: left;
+    line-height: 20px;
+}
+.seckill-goods ul{
+    /* border: 1px solid black; */
+    margin-right: -13px;
+}
+.seckill-goods li{
+    float: left;
+    width: 400px;
+    height: 190px;
+    background-color:#fff;
+    /* border: 1px solid black; */
+    margin-right: 13px;
+    margin-bottom: 13px;
+}
+.seckill-notice{
+    color:#999;
+    font-size: 12px;
+    margin-top:100px;
+    padding-bottom: 35px;
+}
+.seckill-goods .bg{
+    float: left;
+    width: 190px;
+    height: 190px;
+    /* border: 1px solid red; */
+}
+.seckill-goods .bg img{
+    height: 190px;
+}
+.seckill-goods .info{
+    padding-top: 30px;
+    width:190px;
+    height:190px;
+    /* border:1px solid black; */
+    margin-left:210px;
+}
+.seckill-goods .info .name{
+    display:block;
+    font-size: 16px;
+    color:#333;
+    height: 16px;
+    line-height: 16px;
+    white-space: nowrap;
+    overflow:hidden;
+    text-overflow: ellipsis;
+}
+.seckill-goods .info .tips{
+    font-size: 12px;
+    line-height: 12px;
+    color: rgba(0,0,0,0.54);
+    margin-top:10px;
+}
+.seckill-goods .info .price del{
+    color:#999;
+    font-size:12px;
+    line-height: 12px;
+    margin-left: 10px;
+}
+.seckill-goods .info .price{
+    font-size: 16px;
+    line-height: 16px;
+    color:#f1393a;
+    margin-top:14px;
+    margin-bottom: 0;
+}
+/* .seckill-goods .info .price del{
+    color:#999;
+    font-size:12px;
+    line-height: 12px;
+    margin-left: 10px;
+} */
+
+.seckill-goods .info .btn{
+    display: inline-block;
+    width: 118px;
+    height: 28px;
+    font-size: 14px;
+    color:white;
+    line-height: 28px;
+    text-align: center;
+    background: #f1393a;
+    margin-top:19px;
+    border:1px solid  #f1393a;
+}
+.seckill-goods .info .person{
+    font-size: 12px;
+    line-height: 12px;
+    color:#999;
+    margin-top:10px;
+}

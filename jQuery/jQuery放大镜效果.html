@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery放大镜效果</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        img{
+            display: block;
+        }
+        .small-img,.container{
+            float: left;
+        }
+        .small-img{
+            position: relative;
+        }
+        .mask{
+            position: absolute;
+            /* left: 0;
+            top: 0; */
+            width: 175px;
+            height: 175px;
+            display: none;
+            background: #bbffaa;
+            opacity: .8;
+        }
+        .container{
+            margin-left: 200px;
+            overflow: hidden;
+            display: none;
+            position: relative;
+        }
+        .container>img{
+            position: absolute;
+            display: none;
+        }
+    </style>
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script>
+        $(function(){
+            // 获取small-img
+            var $smallImg=$(".small-img");
+            // 获取mask；
+            var $mask=$(".mask");
+            // 获取mask的宽高；
+            var maskHeight=$mask.height();
+            var maskWidth=$mask.width();
+            // 获取smallImg的宽高；
+            var smallImgHeight=$smallImg.height();
+            var smallImgWidth=$smallImg.width();
+            var $container=$(".container");
+            var $largeImg=$container.children();
+            $smallImg.hover(function(){
+                // 显示遮盖层
+                $mask.show();
+                //显示container，显示large Image；
+                $container.show();
+                $largeImg.show();
+                var largeImgWidth=$largeImg.width();
+                var largeImgHeight=$largeImg.height();
+                //设置container的宽高；
+                $container.css({
+                    width:largeImgWidth/2,
+                    height:largeImgHeight/2
+                });
+                // 为smallImg绑定鼠标移动的监听
+                $smallImg.mousemove(function(event){
+                    var left=event.offsetX-maskWidth/2;
+                    var top=event.offsetY-maskHeight/2;
+                    if(left<0){
+                        left=0;
+                    }else if(left>smallImgWidth-maskWidth){
+                        left=smallImgWidth-maskWidth;
+                    }
+                    if(top<0){
+                        top=0;
+                    }else if(top>smallImgHeight-maskHeight){
+                        top=smallImgHeight-maskHeight;
+                    }
+
+                    $mask.css({
+                        left:left,
+                        top:top
+                    });
+
+                    // 调整largeImg的left和top值
+                    left=-left*(largeImgWidth/smallImgWidth);
+                    top=-top*(largeImgHeight/smallImgHeight);
+
+                    $largeImg.css({
+                        left:left,
+                        top:top
+                    });
+                })
+            },function(){
+                $mask.hide();  
+                $container.hide();
+                $largeImg.hide();              
+            })
+
+
+
+
+
+
+
+        })
+    
+    
+    
+    </script>
+</head>
+<body>
+    <div class="small-img">
+        <img src="img/small.jpg">
+        <div class="mask"></div>
+    </div>
+    <div class="container">
+        <img src="img/large.jpg" alt="">
+    </div>
+</body>
+</html>

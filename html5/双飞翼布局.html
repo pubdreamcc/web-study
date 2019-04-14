@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>双飞翼布局</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .header{
+            height: 50px;
+            background: red;
+        }
+        body{
+            min-width: 600px;
+        }
+        .content{
+            /* padding: 0 200px; */
+            overflow: hidden;
+        }
+        .content .middle{
+            float: left;
+            width: 100%;
+            background: yellow;
+            /* box-sizing: border-box;*/
+            /* padding: 0 200px;  */
+        }
+        .content .middle .mid_inner{
+            padding: 0 200px;
+        }
+        .content .middle,.content .left,.content .right{
+            padding-bottom: 10000px;
+            margin-bottom: -10000px;
+        }
+        .content .left{
+            /* position: relative;
+            left: -200px; */
+            width: 200px;
+            float: left;
+            background: pink;
+            margin-left: -100%;
+        }
+        .content .right{
+            /* position: relative;
+            right: -200px; */
+            width: 200px;
+            float: left;
+            margin-left: -200px;
+            background: green;
+        }
+        .footer{
+            height: 50px;
+            background: blue;
+        }
+        .clearfix{
+            *zoom: 1;
+        }
+        .clearfix::after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+    
+    
+    </style>
+</head>
+<body>
+    <div class="header">header</div>
+    <div class="content clearfix">
+        <div class="middle">
+            <div class="mid_inner"><h1>cccc</h1>
+            <h1>cccc</h1>
+            <h1>cccc</h1>
+            <h1>cccc</h1>
+            <h1>cccc</h1>
+            <h1>cccc</h1>
+            <h1>cccc</h1>
+            <h1>cccc</h1>
+            <h1>cccc</h1>
+            <h1>cccc</h1></div>
+        </div>
+        <div class="left">left</div>
+        <div class="right">right</div>
+    </div>
+    <div class="footer">footer</div>
+</body>
+</html>

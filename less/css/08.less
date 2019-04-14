@@ -1,0 +1,20 @@
+@import "less/juzhong.less";
+.outer{
+    height: 400px;
+    width: 400px;
+    border: 1px solid black;
+    margin: 100px auto;
+    .inner{
+        &:extend(.juzhong);
+        &:nth-child(1){
+            height: 100px;
+            width: 100px;
+            background: pink;
+        }
+        &:nth-child(2){
+            height: 50px;
+            width: 50px;
+            background-color: black;
+        }
+    }
+}

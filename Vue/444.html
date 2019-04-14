@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link type="text/css" rel="stylesheet" href="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css" />
+    <script src="../bower_components/d3/d3.js"></script>
+    <script src="test.js"></script>
+    <link rel="stylesheet" href="../public/css/app.css">
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="input-group  input-group-lg">
+                <input id="search-input" type="text" class="form-control" placeholder="Key Words">
+                <span class="input-group-btn">
+                    <button id="search-btn" class="btn btn-default" type="button">Go!</button>
+                    </span>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+    <br/>
+</div>
+<div id="target">
+
+</div>
+<script>
+    Test.show();
+    var inputTxt = d3.select('#search-input');
+    var searchBtn = d3.select('#search-btn');
+    searchBtn.on('click', function() {
+        var dataset = inputTxt.property('value') .split(' ');
+        console.log(dataset);
+        Test.show(dataset);
+    });
+</script>
+
+</body>
+</html>

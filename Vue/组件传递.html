@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>父组件传递属性去子组件</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <mycom1 :parent="name"></mycom1>
+        <mycom2 @func="add"></mycom2>
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                name:"wangzhan",
+                datafromson:null
+            },
+            components:{
+                mycom1:{
+                    template:"<h1>这是我们子组件-----{{parent}}</h1>",
+                    props:["parent"]
+                },
+                mycom2:{
+                    template:"<h1 @click='myclick'>这是我们的子组件2----</h1>",
+                    data(){
+                        return {
+                            name:"cc"
+                        }
+                    },
+                    methods: {
+                        myclick(){
+                            this.$emit("func",this.name)
+                        }
+                    },
+                }
+            },
+            methods: {
+                add(n){
+                    this.datafromson=n
+                }
+            },
+
+        })
+    
+    
+    
+    </script>
+</body>
+</html>

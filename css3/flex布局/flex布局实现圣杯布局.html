@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>Page Title</title>
+  <style>
+    body, header, main, footer{
+      margin: 0;
+      padding: 0;
+    }
+    html,body{
+      height: 100%;
+    }
+    body{
+      display: flex;
+      /* 改变主轴方向 */
+      flex-direction: column;
+    }
+    body header{
+      flex: 0 0 50px;
+      background-color: blueviolet;
+    }
+    body footer{
+      flex: 0 0 60px;
+      background-color: yellowgreen;
+    }
+    body main{
+      flex: 1;
+      background-color: pink;
+      display: flex;
+    }
+    body main nav{
+      flex: 0 0 200px;
+      background-color: brown
+    }
+    body main section{
+      flex: 1;
+      background-color: chocolate;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    body main aside{
+      flex: 0 0 200px;
+      background-color: antiquewhite;
+    }
+
+    .box{
+      width: 200px;
+      height: 200px;
+      background-color: blue;
+    }
+  </style>
+</head>
+<body>
+  <header></header>
+  <main>
+    <nav></nav>
+    <section><div class="box"></div></section>
+    <aside></aside>
+  </main>
+  <footer></footer>
+</body>
+</html>

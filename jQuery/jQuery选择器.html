@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery选择器</title>
+    <!-- <script src="js/jquery-2.1.3.min.js"></script> -->
+    <script src="js/jquery-3.3.1-min.js"></script>
+    <script>
+        $(function(){
+            // 找到选中的单选框为女性的input标签；
+            console.log($(":radio:checked").html())
+        })
+
+        var ol="  op  ";
+        console.log("....."+ol.trim()+".....")
+        // console.log("....."+$.trim(ol)+".....")
+       //var json="{'name':12,'age':'wangzhan'}"
+      //
+    </script>
+</head>
+<body>
+    <input type="text" disabled>
+    <input type="checkbox" value="lanqiu" checked>篮球
+    <input type="checkbox" value="zhuqiu">足球
+    <input type="radio" value="male" name="sex">男
+    <input type="radio" value="female" name="sex" checked>女
+    <input type="button" value="提交">
+    <input type="file">
+    <select>
+        <option value="1">Flowers</option>
+        <option value="2" selected>Gardens</option>
+        <option value="3">Trees</option>
+    </select>
+</body>
+</html>

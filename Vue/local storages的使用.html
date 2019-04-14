@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>localstorage</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="checkbox" v-model="flag">篮球
+        <input type="checkbox" v-model='flag2'>足球
+        <input type="button" value="清空local storage" @click='clear'>
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                flag:true,
+                flag2: JSON.parse(localStorage.getItem('flagValue')) || false
+            },
+            watch: {
+              deep: true, //深度监视
+              flag2: function (value) { 
+                localStorage.setItem('flagValue',JSON.stringify(value))
+               }
+            },
+            methods: {
+              clear(){
+                localStorage.clear()                 
+              }
+            },
+        })
+    </script>
+</body>
+</html>

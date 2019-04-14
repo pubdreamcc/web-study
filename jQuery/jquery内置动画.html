@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>jquery内置动画</title>
+    <style>
+        div{
+            position: absolute;
+            left: 100px;
+            top: 100px;
+            height: 200px;
+            width: 200px;
+            background: skyblue;
+        }
+    </style>
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script>
+        $(function(){
+            $("button:first").click(function(){
+                // $(".cc").slideUp(1000,function(){
+                //     console.log("动画执行完毕！！！");
+                // });
+            })
+            $("button:not(:first)").click(function(){
+            //    $(".cc").toggle(1000);
+            //   // alert("hello");
+            })
+            $("#cc").click(function(){
+                $(".cc").animate({
+                    left:"+=100"
+                },1000).animate({width:300},1000)
+            })
+        })
+    
+    
+    
+    </script>
+</head>
+<body>
+    <button>点我慢慢消失</button>
+    <button>点我慢慢显示和隐藏切换</button>
+    <button id="cc">点我先变高在变宽</button>
+    <div class="cc"></div>
+</body>
+</html>

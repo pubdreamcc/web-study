@@ -1,0 +1,25 @@
+.juzhong,
+.outer .inner {
+  margin: auto;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+}
+.outer {
+  height: 400px;
+  width: 400px;
+  border: 1px solid black;
+  margin: 100px auto;
+}
+.outer .inner:nth-child(1) {
+  height: 100px;
+  width: 100px;
+  background: pink;
+}
+.outer .inner:nth-child(2) {
+  height: 50px;
+  width: 50px;
+  background-color: black;
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>mac停靠栏</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            height: 100%;
+            overflow: hidden;
+        }
+        .wrap{
+            position: absolute;
+            right: 50%;
+            bottom: 0;
+            transform: translateX(50%);
+
+        }
+        .wrap > img{
+            width: 64px;
+            height: 64px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <img src="../js图片轮播练习/img/01.jpg" alt="">
+        <img src="../js图片轮播练习/img/02.jpg" alt="">
+        <img src="../js图片轮播练习/img/03.jpg" alt="">
+        <img src="../js图片轮播练习/img/04.jpg" alt="">
+        <img src="../js图片轮播练习/img/05.jpg" alt="">
+    </div>
+    <script>
+        window.onload=function(){
+            var imgAll=document.querySelectorAll(".wrap > img");
+            var r=320;
+            document.onmousemove=function(event){
+                event=event||window.event;
+                // console.log("move");
+                for(var i=0;i<imgAll.length;i++){
+                    var a=imgAll[i].getBoundingClientRect().left+imgAll[i].offsetWidth/2-event.clientX;
+                    var b=imgAll[i].getBoundingClientRect().top+imgAll[i].offsetTop/2-event.clientY;
+                    var c=Math.sqrt(a*a+b*b);
+                if(c>=r){
+                    c=r;
+                }
+                imgAll[i].style.width=128-c*0.2+"px";
+                imgAll[i].style.height=128-c*0.2+"px";
+                }
+            }
+        }
+    
+    
+    </script>
+</body>
+</html>

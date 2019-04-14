@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>继承初见</title>
+</head>
+<body>
+    <script>
+        window.onload=function(){
+            function Person(name,age){
+                this.age=age;
+                this.name=name;
+            }
+            Person.prototype.setName=function(name){
+                this.name=name
+            }
+            function Student(name,age,price){
+                this.price=price;
+                Person.call(this,name,age);
+            }
+            Student.prototype=new Person();
+            Student.prototype.constractor=Student;
+            Student.prototype.setPrice=function(price){
+                this.price=price;
+            }
+            var s=new Student("tom",12,10000);
+            s.setName("wangzhan")
+            s.setPrice("19000")
+            console.log(s.name,s.age,s.price);
+
+        }
+    
+    
+    </script>
+</body>
+</html>

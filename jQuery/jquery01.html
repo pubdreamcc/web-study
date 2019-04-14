@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Page Title</title>
+    <script src="js/jquery-3.3.1-min.js"></script>
+    <script>
+        $(function(){
+            $("button").click(function(){
+                var cc=  $("input").val()
+                alert(cc)
+                console.log($(this).html())
+                $("<br/><input type='text'><br/>").appendTo("body")
+          })
+        })
+        var dod=[2,3,4,"cc"]
+        $.each(dod,function(l,n){
+            console.log(n)
+        })
+
+
+    </script>
+</head>
+<body>
+    <input type="text">
+    <button>测试</button>
+</body>
+</html>

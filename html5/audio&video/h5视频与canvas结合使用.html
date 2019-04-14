@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>视频及音频与canvas相结合</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #oc{
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <video src="audio&video/Anchor Glass Cows.mp4" width="0" height="0" autoplay></video>
+    <canvas id="oc" width="400" height="400"></canvas>
+</body>
+<script>
+    window.onload=function(){
+        var oc=document.querySelector("#oc");
+        var video=document.querySelector("video");
+        if(oc.getContext){
+            var ctx=oc.getContext("2d");
+            setInterval(function(){
+                ctx.drawImage(video,0,0);
+            });
+        }   
+    }
+</script>
+</html>

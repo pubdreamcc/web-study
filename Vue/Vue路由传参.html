@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue路由传参</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- 导入vue - router组件 -->
+    <script src="https://unpkg.com/vue-router@2.0.0/dist/vue-router.js"></script>
+    <style>
+        .v-enter,.v-leave-to{
+            opacity: 0;
+            transform: translateX(150px);
+        }
+        .v-enter-active,.v-leave-active{
+            transition: all .3s ease;
+        }
+    
+    
+    
+    
+    
+    </style>
+</head>
+<body>
+    
+    <div id="app">
+        <router-link to="/login?id=10&name=wz">登陆</router-link>
+        <router-link to="/register">注册</router-link>
+        <transition mode="out-in">
+            <router-view></router-view>
+        </transition>
+
+
+    </div>
+    <script>
+        // 定义两个组件模板；
+        var login={
+            template:"<h1>登陆------{{$route.query.name}}</h1>"
+        }
+        var register={
+            template:"<h1>注册</h1>",
+            data(){
+                return{
+                    msg:""
+                }
+            },
+            created() {
+                
+            },
+        }
+        // 创造一个路由对象；
+        var router=new VueRouter({
+            routes: [{path:"/login",component:login},{path:"/register",component:register}]
+        })
+     var vm=   new Vue({
+            el:"#app",
+            data:{},
+            router
+        })
+    
+    
+    
+    </script>
+</body>
+</html>

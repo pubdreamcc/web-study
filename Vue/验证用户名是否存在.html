@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>验证用户名是否存在</title>
+</head>
+<body>
+    <h1></h1>
+    <input type="text" placeholder="请输入您的用户名">
+</body>
+    <script>
+        document.querySelector("input").onblur=function(){
+            var xhr=new XMLHttpRequest()
+            xhr.open("GET","./cc2.php?name="+this.value,true)
+            xhr.onreadystatechange=function(){
+                if(xhr.readyState==4 && xhr.status==200||304){
+                    document.querySelector("h1").innerHTML+=xhr.responseText
+                }
+
+            }
+            xhr.send(null)
+        }
+    
+    
+    
+    </script>
+
+
+</html>

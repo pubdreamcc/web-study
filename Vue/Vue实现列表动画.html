@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue实现列表动画效果</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        .v-enter,.v-leave-to{
+            transform: translateY(90px);
+            opacity: 0;
+        }
+        .v-enter-active{
+            transition: all .3s linear;
+        }
+    
+    
+    
+    </style>
+</head>
+<body>
+    <div id="app">
+        name:
+        <input type="text" v-model="name">
+        <ul>
+            <transition-group>
+            
+                <li v-for="(item, index) in list" :key="index">{{item.name}}</li>
+            </transition-group>
+            
+        </ul>
+        
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                name:"",
+                list:[
+                    {id:1,name:"wangzhan"},
+                    {id:2,name:"wangquan"},
+                    {id:3,name:"wangzhanshi"}
+                ]
+            }
+
+        })
+    
+    
+    
+    </script>
+</body>
+</html>

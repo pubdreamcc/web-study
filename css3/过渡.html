@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>过渡</title>
+    <script>
+        window.onload=function(){
+            var cc=document.getElementsByClassName("cc")[0];
+            cc.addEventListener("transitionend",function(){
+                alert("hello");
+            },false);
+        }
+    </script>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        html{
+            height: 100%;
+        }
+        body{
+            height: 60%;
+            border: 1px solid;
+            width: 60%;
+            margin: 150px auto 0;
+        }
+        .cc{
+            width: 100px;
+            height: 100px;
+            background: pink;
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+            transition-property:width,height;
+            transition-duration: 3s,3s; 
+            /* transition-delay: 3s,3s; */
+            transition-timing-function: cubic-bezier(1,.78,.14,1.68),step-start;
+            /* 禁止出现系统滚动条 */
+            /* 
+            html,body{
+                height:100%;
+                overfloat:hidden;
+            }
+            */
+        }
+        body:hover .cc{
+            width: 200px;
+            height: 200px;
+            /* display: none; */
+        }
+        /* transition在元素的首次渲染没结束之前是不会产生的 */
+    </style>
+</head>
+<body>
+    <div class="cc"></div>
+</body>
+</html>

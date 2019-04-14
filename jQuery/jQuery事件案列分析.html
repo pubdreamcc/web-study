@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery事件案例分析</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wrap{
+            position: relative;
+            height: 200px;
+            width: 200px;
+            background: pink;
+        }
+        .wrap .inner{
+            height: 100px;
+            width: 80px;
+            background: red;
+            position: absolute;
+            left: 0;
+            top: 10px;
+        }
+    
+    
+    </style>
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script>
+        $(function(){
+            // 点击wrap（两种方法）
+            $(".wrap").on("click",function(){
+                console.log("wrap click");
+            })
+            // 鼠标进入inner和离开inner绑定事件监听；
+            $(".inner").hover(function(){
+                console.log("inner 进入");
+            },function(){
+                console.log("inner 离开");
+            })
+            $(".inner").click(function(event){
+                console.log("inner被点击");
+                event.stopPropagation();
+            })
+            $("button:first").click(function(){
+                $(".inner").off();
+            })
+            $("button:not(':first')").click(function(){
+                $(".inner").off("mouseenter");
+            })
+        })
+    
+    
+    
+    
+    </script>
+</head>
+<body>
+    <div class="wrap">
+        <div class="inner"></div>
+    </div>
+    <button>点击取消inner的所有事件监听</button>
+    <button>点击取消inner的进入事件监听</button>
+</body>
+</html>

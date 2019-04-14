@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery扩展插件</title>
+    <script src="js/jquery-3.3.1-min.js"></script>
+    <script src="js/my-jQueryplugin.js"></script>
+    <script>
+        // jQuery对象的新增方法；$.fn.extend({})
+        // jQuery函数的新增工具方法 $.extend({})
+        $(function(){
+            var $btn1=$("#allCheck");
+            var $btn2=$("#allNotCheck");
+            var $btn3=$("#inverse");   
+            // 获取所有的爱好input；
+            var $items=$(":checkbox[name=hobby]");  
+            $btn1.click(function(){
+                //全选；
+                $items.checkAll();
+
+            })
+            $btn2.click(function(){
+                //全选；
+                $items.uncheckAll();
+
+            })
+            $btn3.click(function(){
+                //全选；
+                $items.reverseCheck();
+
+            })
+
+        })
+    
+    
+    </script>
+</head>
+<body>
+    <input type="checkbox" name="hobby" id="" value="lanq">篮球
+    <input type="checkbox" name="hobby" id="" value="zuq">足球
+    <input type="checkbox" name="hobby" id="" value="ppq">乒乓球
+    <input type="checkbox" name="hobby" id="" value="ymq">羽毛球<br>
+    <input type="button" value="全选" id="allCheck">
+    <input type="button" value="全不选" id="allNotCheck">
+    <input type="button" value="反选" id="inverse">
+</body>
+</html>

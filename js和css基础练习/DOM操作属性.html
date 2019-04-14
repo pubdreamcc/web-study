@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>dom-style</title>
+    <style>
+    #box1{
+        width: 200px;
+        height: 200px;
+        background-color: red;
+    }
+    #cc{
+        width: 300px;
+        height: 400px;
+        overflow: auto;
+    }
+    </style>
+    <script type="text/javascript">
+        window.onload= function(){
+            var btn01= document.getElementById("btn01");
+            var box1= document.getElementById("box1");
+            btn01.onclick=function(){
+             var w = getStyle(box1,"backgroundColor");
+             alert(w);
+            }
+            // document.write(alert("我是王展"));
+            var cc=document.getElementById("cc");
+            var btn11=document.getElementById("btn11");
+            var agree=document.getElementById("agree");
+            cc.onscroll=function(){
+                if(cc.scrollHeight-cc.scrollTop == cc.clientHeight){
+                      btn11.disabled= false;
+                      agree.disabled= false;
+                }
+            }
+       }
+       // 定义一个函数来获取元素的当前样式值；
+
+       function getStyle(obj,name){
+         // return window.getComputedStyle?getComputedStyle(obj,null)[name]:obj.currentStyle[name];
+         if(window.getComputedStyle){
+             return getComputedStyle(obj,null)[name];
+         }else{
+             return obj.currentStyle[name];
+         }
+       }
+    </script>
+</head>
+<body>
+    <div id="box1"></div><br><br>
+    <button id="btn01">你点我一下</button>
+    <p id="cc">亲爱的用户你好，欢迎注册我们公司的qq业务，请仔细阅读以下相关文件，谢谢！亲爱的用户你好，欢迎注册我们公司的qq业务，请仔细阅读以下相关文件，谢谢！亲爱的用户你好，欢迎注册我们公司的qq业务，请仔细阅读以下相关文件，谢谢！亲爱的用户你好，欢迎注册我们公司的qq业务，请仔细阅读以下相关文件，谢谢！亲爱的用户你好，欢迎注册我们公司的qq业务，请仔细阅读以下相关文件，谢谢！亲爱的用户你好，欢迎注册我们公司的qq业务，请仔细阅读以下相关文件，谢谢！亲爱的用户你好，欢迎注册我们公司的qq业务，请仔细阅读以下相关文件，谢谢！亲爱的用户你好，欢迎注册我们公司的qq业务，请仔细阅读以下相关文件，谢谢！亲爱的用户你好，欢迎注册我们公司的qq业务，请仔细阅读以下相关文件，谢谢！亲爱的用户你好，欢迎注册我们公司的qq业务，请仔细阅读以下相关文件，谢谢！亲爱的用户你好，欢迎注册我们公司的qq业务，请仔细阅读以下相关文件，谢谢！亲爱的用户你好，欢迎注册我们公司的qq业务，请仔细阅读以下相关文件，谢谢！亲爱的用户你好，欢迎注册我们公司的qq业务，请仔细阅读以下相关文件，谢谢！亲爱的用户你好，欢迎注册我们公司的qq业务，请仔细阅读以下相关文件，谢谢！亲爱的用户你好，欢迎注册我们公司的qq业务，请仔细阅读以下相关文件，谢谢！亲爱的用户你好，欢迎注册我们公司的qq业务，请仔细阅读以下相关文件，谢谢！亲爱的用户你好，欢迎注册我们公司的qq业务，请仔细阅读以下相关文件，谢谢！亲爱的用户你好，欢迎注册我们公司的qq业务，请仔细阅读以下相关文件，谢谢！亲爱的用户你好，欢迎注册我们公司的qq业务，请仔细阅读以下相关文件，谢谢！亲爱的用户你好，欢迎注册我们公司的qq业务，请仔细阅读以下相关文件，谢谢！亲爱的用户你好，欢迎注册我们公司的qq业务，请仔细阅读以下相关文件，谢谢！</p>
+    <input type="checkbox" disabled="disabled" id="agree">我同意&nbsp;&nbsp;&nbsp;<input type="submit" value="注册" disabled="disabled" id="btn11">
+</body>
+</html>

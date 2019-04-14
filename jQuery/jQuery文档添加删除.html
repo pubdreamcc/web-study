@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery文档添加删除</title>
+    <script src="js/jquery-3.3.1-min.js"></script>
+    <script>
+        $(function(){
+            // id为ul1的元素中最后添加一个span标签
+            $("#ul1").append("<span>我是通过append()方法添加到最后的</span>");
+            $("#ul1").prepend("<span>我是通过prepend()方法添加到最后的</span>");
+            $("ul>li.cc").before("<span>我是通过before()方法添加到最后的</span>");
+            $("ul>li.cc").after("<span>我是通过after()方法添加到最后的</span>");
+            $("<p>我是一个p标签</P>").replaceAll($("ul>li.cc"));
+            // 删除ul下所有的li
+            //$("#ul1").empty();
+            $("ul>li").remove();
+
+        })
+    
+    
+    
+    </script>
+</head>
+<body>
+    <ul id="ul1">
+        <li class="cc">aa</li>
+        <li>bb</li>
+        <li>cc</li>
+        <li>dd</li>
+    </ul>
+    
+</body>
+</html>

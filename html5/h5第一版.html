@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML5</title>
+    <style>
+        .oo{
+            width: 200px;
+            height: 200px;
+            background: pink;
+        }
+    
+        /* contenteditable="true" 是内容可以被编辑 */
+    </style>
+</head>
+<body>
+   <div class="cc" data-lk="lk"></div> 
+   <div class="oo" contenteditable="true">dadadadswdw</div>
+   <script>
+       var cc=document.querySelector(".cc");
+    //    console.log(cc.classList);
+        cc.classList.add("cc2");
+        cc.classList.remove("cc");
+        cc.classList.toggle("cv");
+        cc.classList.toggle("cc2");
+        console.log(cc.classList);
+        console.log(cc.className);
+        // cc.setAttribute("data-lk","lk");
+        // console.log(cc.dataset.lk);
+        cc.dataset.lk="LL";
+        console.log(cc.dataset.lk);
+        cc.setAttribute("data-lk","222");
+        console.log(cc.dataset.lk);
+   </script>
+</body>
+</html>

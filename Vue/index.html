@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <!-- 引入核心的Vue框架 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="cc">
+        <p v-text="name"></p>
+        <h3>{{sayName()}}</h3>
+        <a :href="website" @click.prevent="show()">百度</a>
+        <div v-html="add"></div>
+        <input type="text" v-model="name">
+
+    </div>
+    
+
+
+    <script>
+    var vm=    new Vue({
+            el:"#cc",
+            data:{
+               name: "wangzhan" ,
+               website: "https://www.baidu.com",
+               add: "<h1>我是一个h1标题</h>"
+            },
+            methods: {
+              sayName: function() {
+                  console.log(this.name)
+              } ,
+              show:function(){
+                 console.log("王展")
+              } 
+            },
+
+        })
+    
+    
+    
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery属性</title>
+    <script src="js/jquery-3.3.1-min.js"></script>
+    <script>
+        $(function(){
+            $("div:eq(0)").css({
+                position:"absolute",
+                left:10,
+                top:10,
+                width:200,
+                height:200,
+                background:"pink"
+            })
+            $("div:eq(1)").css({
+                position:"absolute",
+                left:20,
+                top:20,
+                width:200,
+                height:200,
+                background:"green"
+            })
+            // 获取外面的div相对位置
+            console.log($("div:eq(1)").offset().left);
+            console.log($("div:eq(1)").offset().top);
+            console.log($("div:eq(1)").position());
+            // 获取body
+            $("html").scrollTop(900)
+        })
+    </script>
+</head>
+<body style="height:2000px">
+    <!-- <p>王展是一个很可爱的人，请你们不要嫌弃我呀</p> -->
+    <!-- <p>王展是一个很可爱的人，请你们不要嫌弃我呀</p> -->
+    <div class="outer">
+        <div class="inner">深圳市南山区</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas01</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background: pink;
+        }
+        #cc{
+            background: gray;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            margin: auto;
+        }
+    
+    </style>
+</head>
+<body>
+    <canvas id="cc" width="300px" height="300px">
+        <span>您的浏览器不支持canvas画布，请您下载最新版本的谷歌浏览器。。</span>
+    </canvas>
+    <script>
+        window.onload=function(){
+            // 获取画布元素；
+            var cc=document.querySelector("#cc");
+            // 判断是否支持画笔
+            if(cc.getContext){
+                // 定义一个画笔；
+                var ctx=cc.getContext("2d");
+            }
+            ctx.beginPath();
+            // // 平移的是canvas的原来基准点的位置；
+            // // ctx.translate(50,50);
+            // // 旋转canvas的原点；
+            // ctx.translate(50,100);
+            // ctx.rotate(45*Math.PI/180);
+            // ctx.fillRect(50,50,100,150);
+            // canvas 变换的一种，缩放；
+            ctx.scale(.5,.5);
+            ctx.fillRect(10,10,100,100);
+        }
+    </script>
+</body>
+</html>

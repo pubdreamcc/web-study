@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>tools</title>
+</head>
+<body>
+    <!-- 定义一个方法，用来求取一个字符串中每个字符出现的次数 -->
+    <script>
+        var str="wangzhanshiyigehaoaahjsisks"
+        function getCount(str){
+            var arr=str.split("")
+            var obj={}
+            for(var i=0;i<arr.length;i++){
+                key=arr[i]
+                if(obj[key]){
+                    obj[key]++
+                }else{
+                    obj[key]=1
+                }
+            }
+            console.log(obj)
+            // var cc
+            // var max=0
+            for (var key in obj){
+               if(obj[key]>2){
+                   console.log(key)
+               } 
+            }
+           // console.log(cc+"出现了最多，一共出现了"+max+"次")
+
+            console.log(obj)
+            return obj
+        }
+        getCount(str)
+
+
+
+    
+    
+    </script>
+</body>
+</html>

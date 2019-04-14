@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>时钟</title>
+    <script>
+        window.onload=function(){
+            // 获取DOM树中的ul；
+            var ul=document.querySelector("ul");
+            // 获取页面的style元素；
+            var style=document.getElementsByTagName("style")[0];
+            var hour=document.getElementsByClassName("hour")[0];
+            var minute=document.getElementsByClassName("minute")[0];
+            var sec=document.getElementsByClassName("sec")[0];
+            // 为style标签中添加60个li的相关样式；
+            for(var i=0;i<60;i++){
+                style.innerHTML+=".wrap li:nth-child("+(i+1)+"){transform: rotate("+(6*i)+"deg);}";
+            }
+            var liHtml=" ";
+            // 创建60个li
+            for(var i=0;i<60;i++){
+                liHtml+="<li></li>";
+            }
+            ul.innerHTML=liHtml;
+            move();
+            setInterval(move,1000);
+            //定义一个函数，用来执行分，时，秒的运动；
+            function move(){
+                var d=new Date();
+                var s=d.getSeconds();
+                var m=d.getMinutes()+s/60;
+                var h=d.getHours()+m/60;
+                // 修改hour，minute ，sec的变换样式；
+                hour.style.transform="rotate("+(30*h)+"deg)";
+                minute.style.transform="rotate("+(6*m)+"deg)";
+                sec.style.transform="rotate("+(6*s)+"deg)";
+            }
+        }
+    </script>
+    <style>
+        body,ul,li{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style-type: none;
+        }
+        .wrap{
+            height: 200px;
+            width: 200px;
+            border: 1px solid black;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -100px;
+            margin-top: -100px;
+            border-radius: 50%;
+            box-sizing: border-box;
+        }
+        .wrap li{
+            height: 10px;
+            width: 2px;
+            background: gray;
+            position: absolute;
+            left: 99px;
+            top: 0;
+            transform-origin: center 100px; 
+        }
+        .wrap li:nth-child(5n+1){
+            height: 15px;
+        }
+        /* .wrap li:nth-child(2){
+            transform: rotate(6deg);
+        }
+        .wrap li:nth-child(3){
+            transform: rotate(12deg);
+        }
+        .wrap li:nth-child(4){
+            transform: rotate(18deg);
+        }
+        .wrap li:nth-child(5){
+            transform: rotate(24deg);
+        } */
+        .wrap .hour{
+            position: absolute;
+            left: 97px;
+            top: 70px;
+            height: 30px;
+            width: 6px;
+            background: black;
+            transform-origin: center 30px;
+        }
+        .wrap .minute{
+            position: absolute;
+            left: 98px;
+            top: 50px;
+            width: 4px;
+            height: 50px;
+            background: gray;
+            transform-origin: center 50px; 
+        }
+        .wrap .sec{
+            position: absolute;
+            left: 99px;
+            top: 30px;
+            width: 2px;
+            height: 70px;
+            background: deeppink;
+            transform-origin: center 70px;   
+        }
+        .wrap .icon{
+            position: absolute;
+            left: 90px;
+            top: 90px;
+            height: 20px;
+            width: 20px;
+            background: red;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <ul></ul>
+        <div class="hour"></div>
+        <div class="minute"></div>
+        <div class="sec"></div>
+        <div class="icon"></div>
+    </div>
+</body>
+</html>

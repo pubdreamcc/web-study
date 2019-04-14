@@ -1,0 +1,24 @@
+.hh(@w:10px,@h:10px,@c:pink){
+    width: @w;
+    height: @h;
+    background-color:@c;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+}
+.outer{
+    width: 400px;
+    height: 400px;
+    margin: 100px auto;
+    position: relative;
+    border: 1px solid black;
+    .inner{
+       .hh(100px,100px,pink);
+    }
+    .inner2{
+       .hh();
+    }
+}

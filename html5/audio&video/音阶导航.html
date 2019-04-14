@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>音阶导航</title>
+    <style>
+        body,ul,li{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            height: 100%;
+            overflow: hidden;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+            display: block;
+            width: 100px;
+            height: 38px;
+        }
+        .nav{
+            width: 504px;
+            height: 38px;
+            list-style-type: none;
+            margin: 100px auto;
+            border: 1px solid black;
+            overflow: hidden; 
+        }
+        .nav > li{
+            float: left;
+            text-align: center;
+            line-height: 38px;
+        }
+        .nav > li:not(:last-child){
+            border-right: 1px solid black; 
+        }
+        li > div{
+            height: 38px;
+            background: pink;
+            transition: .5s;
+        }
+        li:hover div{
+            transform: translateY(-38px);
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var audio=document.querySelector("audio");
+            var liNode=document.querySelectorAll("li");
+            for(var i=0;i<liNode.length;i++){
+                liNode[i].addEventListener("mouseenter",function(){
+                    var flag=this.dataset.flag;
+                    if(flag){
+                        audio.src="audio&video/kebukeyi.mp3";
+                        audio.play();
+                    }
+                });
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="wrap">
+        <audio></audio>
+        <ul class="nav">
+            <li data-flag="a">
+                <a href="javascript:;">百度首页</a>
+                <div class="down"></div>
+            </li>
+             <li>
+                <a href="javascript:;">腾讯首页</a>
+                <div class="down"></div>
+            </li>
+            <li data-flag="b">
+                <a href="javascript:;">新浪首页</a>
+                <div class="down"></div>
+            </li>
+            <li>
+                <a href="javascript:;">小米首页</a>
+                <div class="down"></div>
+            </li>
+            <li data-flag="c">
+                <a href="javascript:;">阿里首页</a>
+                <div class="down"></div>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

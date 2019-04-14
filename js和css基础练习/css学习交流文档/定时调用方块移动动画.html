@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>定时调用div移动练习</title>
+    <script src="../../tools/tool.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+       #box{
+           width: 100px;
+           height: 100px;
+           background-color: red;
+           position: absolute;
+       }
+       #box1{
+           width: 100px;
+           height: 100px;
+           background-color: yellow;
+           position: absolute;
+           top: 200px;
+       }
+    </style>
+    <script>
+        window.onload=function(){
+            var box=document.getElementById("box");
+            var box1=document.getElementById("box1");
+            var btn=document.getElementById("btn");
+            var btn02=document.getElementById("btn02");
+            var btn03=document.getElementById("btn03");
+            var btn04=document.getElementById("btn04");
+            btn02.onclick=function(){
+                move(box,"left",0,-10);
+            }
+            btn.onclick=function(){
+            move(box,"left",800,10);
+            }
+            btn03.onclick=function(){
+                move(box1,"left",800,10);
+            }
+            btn04.onclick=function(){
+                move(box1,"width",800,10,function(){
+                    move(box1,"height",200,10,function(){
+                        move(box1,"top",50,-10,function(){
+                            move(box1,"top",200,10,function(){
+                                move(box1,"height",100,-10,function(){
+                                    move(box1,"width",100,-10,function(){
+                                        alert("动画完成，王展爱陈梅婷~~~");
+                                    })
+                                })
+                            })
+                        })
+                    })
+                });
+            }
+        }
+    </script>
+</head>
+<body>
+    <button id="btn">点我右移动</button>
+    <button id="btn02">点我左移动</button>
+    <button id="btn03">点我右移黄色方块</button>
+    <button id="btn04">测试按钮</button>
+    <br><br>
+    <div id="box"></div>
+    <div id="box1"></div>
+    <div style="width: 0;height: 1000px; border-left: 1px solid black; position: absolute;top: 0;left: 800px;"></div>
+</body>
+</html>

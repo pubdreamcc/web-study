@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>annimate动画</title>
+    <link rel="stylesheet" href="css/animate.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button @click="flag=!flag">测试</button>
+        <transition enter-active-class="fadeInLeftBig" leave-active-class="fadeInRightBig" :duration='1000'>
+            <h1 v-if="flag" class="animated">我是一个h1</h1>
+        </transition>
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                flag:false
+            }
+        })
+    </script>
+</body>
+</html>

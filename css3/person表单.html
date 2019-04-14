@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义表单</title>
+    <style>
+        label{
+            float: left;
+            /* 开启相对定位 */
+            position: relative;
+            width: 200px;
+            height: 200px;
+            border: 2px solid;
+            overflow: hidden;
+        }
+        input{
+            position: absolute;
+            left: -50px;
+            top: -50px;
+        }
+        /* 设置span和label一样的大小 */
+        label > span{
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+        }
+        /* 设置自定义单选按钮，当input被选中的时候span的背景颜色变成粉红色 */
+        input:checked + span{
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+    <label>
+        <input type="radio" name="cc">
+        <span></span>
+    </label>
+    <label>
+        <input type="radio" name="cc">
+        <span></span>
+    </label>
+    <label>
+        <input type="radio" name="cc">
+        <span></span>
+    </label>
+</body>
+</html>

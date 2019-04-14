@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>新增文本样式</title>
+    <style>
+        .cc{
+            width:400px;
+            height: 400px;
+            background: pink;
+            opacity: 0.5;
+        }
+        .inner{
+            width: 150px;
+            height: 150px;
+            background: deeppink;
+            opacity: 0.2;
+        }
+        .cc2{
+            width: 100px;
+            height: 100px;
+            /* background: rgb(0, 0, 0); */
+            /* 背景透明，字不透明。 */
+            /* 新增的颜色模式 */
+            background: rgba(0, 0, 0, .6);
+            text-align: center;
+            font: 24px/100px "微软雅黑" ;
+        }
+    </style>
+</head>
+<body>
+    <div class="cc">
+        <div class="inner"></div>
+    </div>
+    <div class="cc2">
+        我是cc2
+    </div>
+</body>
+</html>

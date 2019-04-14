@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>div练习</title>
+    <style>
+        .cc{
+            /* border: 1px solid black; */
+            width: 500px;
+            height: 200px;
+            background-color: yellow;
+        }
+        .cc::before{
+            display: table;
+            content: " ";
+        }
+        .cc2{
+            /* border: 1px solid red; */
+            padding: 0 10px;
+            /* width: 500px; */
+            margin: 30px 10px 0;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="cc">
+        <div class="cc2"></div>
+    </div>
+</body>
+</html>

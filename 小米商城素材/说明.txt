@@ -1,0 +1,3 @@
+目录已经建好，图片素材在img文件夹，iconfont素材在css文件夹。具体如何使用，大家就按照课程视频来做吧
+https://ke.qq.com/course/315961
+

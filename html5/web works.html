@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Page Title</title>
+    <style>
+        input::-webkit-input-placeholder{
+            color: red;
+        }
+    
+    </style>
+</head>
+<body>
+    <input type="text" placeholder="数值">
+    <button>计算结果</button>
+    <script>
+        var input=document.querySelector("input")
+        // input.onclick=function(){
+        //     var worker=new worker();
+
+            
+        // }
+    //    定义一个函数用来获取斐波那契数列指定的位置数字；
+    function getNumber(n){
+        return n<=2?1:getNumber(n-1)+getNumber(n-2);
+    }
+    console.log(getNumber(7))
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue实现计数器的组件</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app1">
+        <mycount></mycount>
+    </div>
+    <template id="tem1">
+        <div><input type="button" value="+" @click="add">
+        <p>{{meg}}</p></div>
+
+    </template>
+    <script>
+        new Vue({
+            el:"#app1",
+            components:{
+               
+                mycount:{ template:"#tem1",
+                            data() {
+                                return {
+                                    meg:0
+                                }
+                            },
+                            methods: {
+                                add(){
+                                    this.meg++
+                                }
+                            }
+                }
+            }
+        })
+    
+    
+    
+    
+    
+    </script>
+</body>
+</html>

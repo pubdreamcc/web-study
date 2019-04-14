@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>样式1</title>
+<link rel="stylesheet" href="2.0.css" />
+<!-- <link rel="stylesheet" href="style.css"> -->
+<script>
+    
+    var a = 1;
+
+function foo() {
+    console.log(a);
+    a = 2;     // 此处的a相当于window.a
+}
+
+  foo();
+console.log(a);   //打印结果是2
+
+
+</script>
+</head>
+<body>
+    <div>
+        西瓜
+        <p class="w1"class="w2">p1</p>
+    </div>
+    <p class="w2">p2</p>
+</body>
+</html>

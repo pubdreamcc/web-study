@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>风车</title>
+    <style>
+        html,body{
+            height: 100%;
+            overflow: hidden;
+        }
+        .cc{
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            top: 0;
+            right: 0;
+            margin: auto;
+            width: 300px;
+            height: 300px;
+            transition: 2s;
+            /* border: 1px solid; */
+        }
+        .cc > div{
+            margin: 10px;
+            width: 130px;
+            height: 130px;
+            background: pink;
+            float: left;
+            box-sizing: border-box;
+            border: 1px solid;
+        }
+        .cc > div:nth-child(1),.cc > div:nth-child(4){
+            border-radius: 0 60%;
+        }
+        .cc > div:nth-child(2),.cc > div:nth-child(3){
+            border-radius: 60% 0;
+        }
+        .cc:hover{
+            transform: rotate(120deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="cc">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</body>
+</html>

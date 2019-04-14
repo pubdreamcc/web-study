@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>事件的绑定</title>
+    <style>
+        .btn{
+            display: block;
+            text-align: center;
+            margin: 0 auto;
+        }   
+    </style>
+    <script>
+        window.onload=function(){
+           // var btn=document.getElementsByClassName("btn")[0];
+             var btn= document.getElementsByTagName("button")[0];
+           function cc(){
+                alert(this.name);
+            }
+           // btn.addEventListener("click",cc,false);
+           // btn.addEventListener("click",function(){alert("cc")},false);
+            // btn.attachEvent("onclick",cc);
+            // btn.attachEvent("onclick",function(){
+            //     alert("cc");
+            // });
+            // 定义一个函数，可以为指定元素添加响应函数；
+            function bind(obj,eventstr,callback){
+                if(obj.addEventListener){
+                    obj.addEventListener(eventstr,callback,false);
+                }else{
+                    obj.attachEvent("on"+eventstr,function(){
+                        callback.call(obj);
+                    });
+                }
+            }
+            bind(btn,"click",cc);
+            var obj={
+                name: "wanzgan",
+                age: 13,
+                slogan: function(){
+                    alert(this.age);
+                }
+            }
+            var obj2={
+                age: 22,
+                name: "chenmeiting"
+            }
+            // obj.slogan();
+          // obj.slogan.call(obj2);
+          for(var on in obj){
+              console.log(obj[on]);
+          }
+        
+        }
+
+    </script>
+</head>
+<body>
+        <button class="btn" name="vv">我是一个按钮</button>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>vue.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="cc">
+        <h1>{{ name }}</h1>
+        <a v-bind:href="websit">百度</a>
+        <h2>{{sayName()}}</h2>
+        <p></p>
+        <h4 v-html="text"></h4>
+        <input type="text" value="woshi">
+        <button v-on:click="show">按钮</button>
+    </div>
+    
+    <form action="" method="get" id="ws">
+        <input type="text">
+    </form>
+
+
+
+    <script>
+        new Vue({
+            el:"#cc",
+            data:{
+                name:"wangzhan",
+                job:"前端开发",
+                websit:"https://www.baidu.com",
+                text: "woshiwangzzha"
+            },
+            methods: {
+                sayName:function(){
+                    return this.name;
+                },
+                show: function () { alert("我是一个按钮")  }
+            }
+        })
+    
+        document.getElementById("ws").addEventListener("change",function(){
+            console.log("表单改变了");
+        })
+    
+    </script>
+</body>
+</html>

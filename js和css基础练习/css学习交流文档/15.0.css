@@ -1,0 +1,22 @@
+div{
+    
+    border: 1px solid black;
+    background: red;
+    margin:20px;
+}
+
+.div1,.div2,.div3,.div4{
+    float: left;
+    background-color: rebeccapurple;
+    width: 100px;
+    height:100px;
+}
+.container::before{
+    content:" ";
+    display:table;
+}
+.container::after{
+    content: " ";
+    display: table;
+    clear: both;
+}

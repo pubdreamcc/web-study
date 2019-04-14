@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>立方体第一版</title>
+    <style>
+        .outer{
+            height: 300px;
+            width: 300px;
+            border: 1px solid black;
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            perspective: 200px;
+            transform-style: preserve-3d;
+        }
+        .outer > .inner{
+            height: 100px;
+            width: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            transition: 2s;
+            transform-style: preserve-3d;
+            transform-origin: center center -50px; 
+        } 
+        .inner > div{
+            height: 100px;
+            width: 100px;
+            /* background: pink; */
+            background: rgba(22, 111, 23, .1);
+            backface-visibility: hidden;
+            position: absolute;
+            text-align: center;
+            font: 24px/100px "微软雅黑";
+        }
+        .inner > div:nth-child(3){
+            left: -100px;
+            transform-origin: right;
+            transform: rotateY(-90deg);
+        }
+        .inner > div:nth-child(4){
+            right: -100px;
+            transform-origin: left;
+            transform: rotateY(90deg); 
+        }
+        .inner > div:nth-child(5){
+            top: -100px;
+            transform-origin: bottom;
+            transform: rotateX(90deg);
+        }
+        .inner > div:nth-child(6){
+            bottom: -100px;
+            transform-origin: top;
+            transform: rotateX(-90deg);
+        }
+        .inner > div:nth-child(2){
+            transform: translateZ(-100px) rotateX(180deg);
+        }
+        .inner > div:nth-child(1){
+            z-index: 1;
+        }
+        .outer:hover .inner{
+            transform: rotate3d(2,4,3,720deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner">
+            <div>前</div>
+            <div>后</div>
+            <div>左</div>
+            <div>右</div>
+            <div>上</div>
+            <div>下</div>
+        </div>
+    </div>
+</body>
+</html>

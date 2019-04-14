@@ -1,0 +1,27 @@
+/* div{
+    width:100px;
+    height:200px;
+    background-color:yellow;
+    position: fixed;
+    right: 50px;
+    bottom: 100px;
+} */
+.div1,.div2{
+    
+    width: 100px;
+    height: 200px;
+    background: red;
+
+}
+#container{
+    width: 400px;
+    height: 400px;
+    background:yellow;
+    margin:auto;
+    position: relative;
+}
+.div1{
+    position: absolute;
+    top:50px;
+    left:100px;
+}

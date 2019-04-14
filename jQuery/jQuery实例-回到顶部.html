@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery核心对象的基本行为</title>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.js"></script>
+    <script>
+        $(function(){
+            $(".cc").css({
+                background:"pink",
+                width:70,
+                height:70,
+                position:"fixed",
+                right:10,
+                bottom:10,
+                lineHeight:"70px",
+                textAlign:"center"
+            }) 
+           // $("html").css("transition","4s top")  
+            $(".cc").click(function(){
+                var distance=$("html").scrollTop();
+                var time=500;
+                var intervalTime=11;
+                var intervalDis=distance/(time/intervalTime);
+                var timer=setInterval(function(){
+                    distance-=intervalDis;
+                    if(distance<=0){
+                        distance=0;
+                        clearInterval(timer);
+                    }
+                    $("html").scrollTop(distance);
+                },intervalTime);
+               // alert("woshiwangzhan")
+               // 让当前页面的滚动条回到顶部
+              // $(document.documentElement).scrollTop(0);
+               //定时器来实现这个功能
+            }) 
+                    
+        })
+    
+    </script>
+</head>
+<body style="height:2000px">
+    <div class="cc">回到顶部</div>
+    <img src="" alt="">
+    <img src="" alt="">
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>js实现曲线运动</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .test{
+            height: 10px;
+            width: 10px;
+            background: black;
+            position: absolute;
+            top: 200px;
+            left: 200px;
+        }
+        .box{
+            border: 1px solid black;
+            position: absolute;
+        }
+    
+    </style>
+    <script>
+        window.onload=function(){
+            var test=document.querySelector(".test");
+            // 定义元素开始的位置；
+            var startX=test.offsetLeft;
+            var startY=test.offsetTop;
+            // 定义一个度数；
+            var deg=0;
+            var step=100;
+            setInterval(function(){
+                deg++;
+                test.style.left=startX+(deg*Math.PI/180)*step/2+"px";
+                test.style.top=startY+Math.sin(deg*Math.PI/180)*step/2+"px";
+                var box=document.createElement("div");
+                box.classList.add("box");
+                box.style.left=test.offsetLeft+"px";
+                box.style.top=test.offsetTop+"px";
+                document.body.appendChild(box);
+            },1000/60);
+        }
+    
+    </script>
+</head>
+<body>
+    <div class="test"></div>
+</body>
+</html>

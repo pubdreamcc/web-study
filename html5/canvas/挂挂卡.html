@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <title>挂挂卡案列</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            height: 100%;
+            overflow: hidden;
+        }
+        .wrap,ul,ul>li{
+            height: 100%;
+        }
+        ul>li{
+            background: url(images/pjcd.jpg);
+            background-size: 100% 100%;
+        }
+        canvas{
+            position: absolute;
+            left: 0;
+            top: 0;
+            transition: 2s;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <canvas></canvas>
+        <ul>
+            <li></li>
+        </ul>
+    </div>
+    <script>
+        window.onload=function(){
+            var canvas=document.querySelector("canvas");
+            canvas.width=document.documentElement.clientWidth;
+            canvas.height=document.documentElement.clientHeight;
+            if(canvas.getContext){
+                var ctx=canvas.getContext("2d");
+                var img=new Image();
+                var imgUrl="images/fm.jpg";
+                // img.crossOrigin="Anonymous";
+                img.src=imgUrl;
+                img.onload=function(){
+                    draw();
+                }
+                function draw(){
+                    var flag=0;
+                    ctx.drawImage(img,0,0,canvas.width,canvas.height);
+                    canvas.addEventListener("touchstart",function(event){
+                        event=event||window.event;
+                        var touchC=event.changedTouches[0];
+                        var x=touchC.clientX-canvas.offsetLeft;
+                        var y=touchC.clientY-canvas.offsetTop;
+
+                        ctx.save();
+                        ctx.lineWidth=40;
+                        ctx.lineCap="round";
+                        ctx.globalCompositeOperation="destination-out";
+                        ctx.beginPath();
+                        ctx.moveTo(x,y);
+                        ctx.lineTo(x+1,y+1);
+                        ctx.stroke();
+                        ctx.restore();
+
+                    });
+                    canvas.addEventListener("touchmove",function(event){
+                        event=event||window.event;
+                        var touchC=event.changedTouches[0];
+                        var x=touchC.clientX-canvas.offsetLeft;
+                        var y=touchC.clientY-canvas.offsetTop;
+
+                        ctx.save();
+                        ctx.lineWidth=40;
+                        ctx.lineJoin="round";
+                        ctx.lineCap="round";
+                        ctx.globalCompositeOperation="destination-out";
+                        ctx.lineTo(x,y);
+                        ctx.stroke();
+                        ctx.restore();
+
+                    });
+                    canvas.addEventListener("touchend",function(){
+                        var imgData=ctx.getImageData(0,0,canvas.width,canvas.height);
+                        var allPx=imgData.width*imgData.height;
+                        for(var i=0;i<allPx;i++){
+                            if(imgData.data[4*i+3]==0){
+                                flag++;
+                                // console.log(flag);
+                            }
+                        }
+                        if(flag >= allPx/2){
+                            canvas.style.opacity=0;
+                        }
+                    });
+                    canvas.addEventListener("transitionend",function(){
+                        this.remove();
+                    });
+                }
+
+            }
+
+        }
+    
+    
+    </script>
+</body>
+</html>

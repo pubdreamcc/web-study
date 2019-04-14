@@ -1,0 +1,18 @@
+.outer {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border: 1px solid black;
+  margin: 100px auto;
+}
+.outer .inner {
+  height: 50px;
+  width: 50px;
+  background-color: #ffc0cb;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}

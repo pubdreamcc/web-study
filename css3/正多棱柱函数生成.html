@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>正多棱柱函数生成</title>
+    <script>
+        window.onload=function(){
+            // 调用createLz；
+            createLz(10);
+            // 创建一个函数，用来获取n边形正棱柱；
+            // 参数： n ----要获取的棱柱的边数据；
+            function createLz(n){
+                // 获取正n棱柱的外角度；
+                var degOut=360/n;
+                // 获取正棱柱的内角度；
+                var degIn=180-degOut;
+                // 获取页面的innerDiv；
+                var inner=document.getElementsByClassName("inner")[0];
+                // 创建一个style标签；
+                var style =document.createElement("style");
+                // 创建style标签的内容；
+                var styleText="";
+                // 创建一个inner内容的变量；
+                var innerText="";
+                for(var i=0;i<n;i++){
+                    innerText+="<div>"+(i+1)+"</div>";
+                    styleText+=".inner > div:nth-child("+(i+1)+"){transform:rotateY("+(i*degOut)+"deg);}";
+                }
+                inner.innerHTML=innerText;
+                // 获取inner里面的一个div；
+                var mianDiv=document.querySelector(".inner > div");
+                // 获取正棱柱的棱长；
+                var length=mianDiv.offsetWidth;
+                styleText+=".inner{transform-origin: center center -"+(length/2*Math.tan((degIn/2)*Math.PI/180))+"px}";
+                styleText+=".inner > div{transform-origin: center center -"+(length/2*Math.tan((degIn/2)*Math.PI/180))+"px}";
+                style.innerHTML=styleText;
+                document.head.appendChild(style);
+            }
+        }
+    </script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            height: 100%;
+            overflow: hidden;
+        }
+        .outer{
+            height: 300px;
+            width: 300px;
+            /* border: 1px solid black; */
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -150px;
+            margin-top: -150px;
+            perspective: 500px;
+        }
+        .inner{
+            height: 300px;
+            width: 300px;
+            /* background: pink; */
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -50px;
+            margin-top: -50px; 
+            transition: 10s transform;
+            transform-style: preserve-3d;
+        }
+        .inner > div{
+            height: 300px;
+            width: 300px;
+            font: 55px/300px "微软雅黑";
+            text-align: center;
+            position: absolute;
+            background: pink;
+        }
+        .outer:hover > .inner{
+            transform: rotateY(360deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner"></div>
+    </div>
+</body>
+</html>

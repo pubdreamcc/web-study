@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>json数据格式</title>
+</head>
+<body>
+    <script>
+        var obj1={
+            name: "wangzhan",
+            age:"18",
+            gender:"男"
+        }
+       var cc=JSON.stringify(obj1)
+       console.log(cc)
+       var str ='{"name":"小强","age":16,"regex": "lkj"}';
+       console.log(JSON.parse(str).age)
+
+
+    //    JSON是一个字符串，存储数据的格式，用于服务器向客户端传输数据
+    var jsonStr='["1","2","3"]'
+    var kl=JSON.parse(jsonStr)
+    console.log(kl[0])
+    var arr2=["cc","ll","cc"]
+    console.log(arr2.join(""))
+    
+    
+    </script>
+</body>
+</html>

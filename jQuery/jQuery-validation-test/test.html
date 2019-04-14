@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery-validation</title>
+    <style>
+        .error{
+            color: red;
+        }
+    
+    
+    
+    </style>
+    <script src="jquery-1.11.1.js"></script>
+    <script src="jquery.validate.js"></script>
+    <script>
+        $(function(){
+            // 开启表单验证；
+            $("#myForm").validate({
+                messages:{
+                    username:{
+                        required:"用户名是必须",
+                        minlength:"最小位数为6"
+                    },
+                    psd1:{
+                        required:"密码必须要",
+                        minlength:"密码最少长度为6",
+                        maxlength:"密码最大长度为8"
+                    },
+                    psd2:{
+                        equalTo:"必须和原始密码相同"
+                    }
+                }
+                
+            });
+        })
+    
+    
+    
+    
+    </script>
+</head>
+<body>
+    <form id="myForm" action="xxx">
+        <!--必须， 用户名最少6位 -->
+        <p>用户名：<input type="text" required minlength="6" name="username"></p>
+        <!--必须， 密码6-8位 -->
+        <p>密码：<input type="password" name="psd1" required minlength="6" maxlength="8"></p>
+        <!-- 确认密码必须和密码相同才可以提交 -->
+        <p>确认密码：<input type="password" name="psd2" equalTo=":input[name=psd1]"></p>
+        <p><input type="submit" value="注册"></p>
+    </form>
+</body>
+</html>

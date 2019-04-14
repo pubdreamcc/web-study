@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>3D变换</title>
+    <style>
+        .outer{
+            width: 400px;
+            height: 400px;
+            border: 1px solid black;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            perspective: 200px;
+            background: gray;
+            transform-style: preserve-3d;
+        }
+        .inner{
+            height: 200px;
+            width: 200px;
+            background: pink;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -100px;
+            margin-top: -100px;
+            border-radius: 50%;
+            border: 1px solid black;
+            text-align: center;
+            font: 24px/200px "微软雅黑";
+            transition: 2s;
+        }
+        .outer:hover .inner{
+            /* transform: rotate3d(1,0,0,360deg); */
+            /* transform: translate3d(100px,100px,100px); */
+            /* transform: scale3d(2,2,1); */
+            transform: rotateX(90deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner">王展</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery轮播图</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wrap{
+            position: relative;
+            width: 800px;
+            height: 500px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        .clearfix::after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .wrap .list{
+            position: absolute;
+            left: -800px;
+            top: 0;
+            width: 5600px;
+        }
+        .wrap .list img{
+            float: left;
+            width: 800px;
+            height: 500px;
+        }
+        .wrap .arrow{
+            display: none;
+        }
+        .wrap .arrow a{
+            position: absolute;   
+        }
+        .wrap .arrow a img{
+            width: 80px;
+            height: 80px;
+            background: pink;
+            opacity: .6;
+        }
+        .wrap .arrow a:nth-child(1){
+            left: 0;
+            top: 208px;
+        }
+        .wrap .arrow a:nth-child(2){
+            right: 0;
+            bottom: 208px;
+        }
+        .wrap .point{
+            position: absolute;
+            bottom: 20px;
+            left: 300px;
+        }
+        .wrap .point span{
+            float: left;
+            width: 30px;
+            height: 30px;
+            background: black;
+            border-radius: 50%;
+            opacity: .4;
+            margin-left: 10px; 
+            cursor: pointer;
+        }
+        .wrap .point .active{
+            background: red;
+            opacity: 1;
+        }
+    </style>
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script>
+        $(function(){
+            // 获取外层div
+            $(".wrap").hover(function(){
+                $(".wrap .arrow").css("display","block");
+                clearInterval(intervalID);
+            },function(){
+                $(".wrap .arrow").css("display","none");
+                intervalID=setInterval(function(){
+                    nextPage(true);
+                },1000)   
+            })
+            var $nextA=$(".arrow>a:first");
+            var $previA=$(".arrow>a:eq(1)");
+            // 获取list
+            var $list=$(".wrap>.list");
+            // 每一页的宽度
+            var PAGE_width=800;
+            // 定义动画的总时间；
+            var TIMEALL=400;
+            // 每个项目移动的时间
+            var itemsTime=20;
+            var imgCount=$(".wrap>.point>span").length;
+            var $points=$(".wrap>.point>span");
+            var index=0;
+            var moving=false;
+            $nextA.click(function(){
+                nextPage(true);
+            })
+            $previA.click(function(){
+                nextPage(false);
+            })
+            var intervalID=setInterval(function(){
+                nextPage(true);
+            },1000);
+            $points.click(function(){
+                var targetIndex=$(this).index();
+                if(targetIndex!=index){
+                    nextPage(targetIndex);
+                }
+            })
+            
+            function nextPage(next){
+
+
+
+                if(moving){ // 正在翻页中
+                    return;
+                }
+                moving=true;
+                var currentLeft=$list.position().left;
+                if(typeof next==="boolean"){
+                    var offset=next?-PAGE_width:PAGE_width;
+                }else{
+                    var offset=-(next-index)*PAGE_width;
+                }
+                // 每个项目移动的距离；
+                var itemsOffset=offset/(TIMEALL/itemsTime);
+                // 定义一个目标left
+                var targetLeft=currentLeft+offset;
+                var intervalID=setInterval(function(){
+                    currentLeft+=itemsOffset;
+                    if(currentLeft===targetLeft){
+                        clearInterval(intervalID);
+                        moving=false;
+                        if(currentLeft===-(imgCount+1)*800){
+                            currentLeft=-PAGE_width;
+                        }else if(currentLeft===0){
+                            currentLeft=-imgCount*800;
+                        }
+                    }
+                    $list.css("left",currentLeft);
+                },itemsTime);
+                // 同步小圆点问题；
+                updatePoints(next);
+            }
+
+            function updatePoints(next){
+                var targetIndex=0;
+                if(typeof next==="boolean"){
+                    if(next){
+                        targetIndex=index+1;
+                        if(targetIndex===imgCount){
+                            targetIndex=0;
+                        }
+                    }else{
+                        targetIndex=index-1;
+                        if(targetIndex===-1){
+                            targetIndex=imgCount-1;
+                        }
+                    }
+                }else{
+                    targetIndex=next;
+                }
+                $points.eq(index).removeClass("active");
+                $points.eq(targetIndex).addClass("active");
+                index=targetIndex;
+            }
+        })
+    
+    </script>
+</head>
+<body>
+    <div class="wrap">
+        <div class="list clearfix">
+            <img src="img/05.jpg" alt="">
+            <img src="img/01.jpg" alt="">
+            <img src="img/02.jpg" alt="">
+            <img src="img/03.jpg" alt="">
+            <img src="img/04.jpg" alt="">
+            <img src="img/05.jpg" alt="">
+            <img src="img/01.jpg" alt="">
+        </div>
+        <div class="arrow">
+            <a href="javascript:;"><img src="img/arrowleft.png" alt=""></a>
+            <a href="javascript:;"><img src="img/arrowright.png" alt=""></a>
+        </div>
+        <div class="point">
+            <span class="active"></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>王展的图片切换练习</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/1.0.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h3 id="info"></h3>
+       <img id="plant" src="img/01.jpg" alt="图片">
+       <div class="btn">
+          <input id="prev" type="button" value="上一张">
+          <input id="next" type="button" value="下一张">
+       </div>
+    </div>
+     <form action="" method="POST">
+        你爱好的运动是？<input type="checkbox" name="" id="checkallbox">全选或全不选<br>
+        <input type="checkbox" name="items" value="足球">足球
+        <input type="checkbox" name="items" value="篮球">篮球
+        <input type="checkbox" name="items" value="羽毛球">羽毛球
+        <input type="checkbox" name="items" value="乒乓球">乒乓球<br>
+        <input type="button" value="全选" id="allchecked">
+        <input type="button" value="全不选" id="nochecked">
+        <input type="button" value="反选" id="revchecked">
+        <input type="button" value="提交" id="subchecked">
+    </form>
+</body>
+</html>

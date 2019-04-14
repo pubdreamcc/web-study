@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue实例</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/twitter-bootstrap/3.0.2/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">添加品牌</h3>
+            </div>
+            <div class="panel-body form-inline">
+                <label for="">
+                    ID:
+                    <input type="text" class="form-control" v-model="id">
+                </label>
+                <label for="">
+                    name:
+                    <input type="text" class="form-control" v-model="name"></label>
+                <input type="button" value="添加" @click="add" class="btn btn-primary">
+                <label for="">
+                    搜素名称关键字:
+                    <input type="text" class="form-control" v-model="keywords">
+                </label>
+            </div>
+        </div>
+        <table class="table table-bordered table-hover">
+            <tr>
+                <td>ID</td>
+                <td>品牌名称</td>
+                <td>操作时间</td>
+                <td>操作</td>
+            </tr>
+            <tr v-for="item in search(keywords)" :key="item.id">
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.time}}</td>
+                <td><a href="#" @click.prevent="del(item.id)">删除</a></td>
+            </tr>
+
+
+
+        </table>
+
+        <p>{{lk | lkFil}}</p>
+
+
+
+
+
+    </div>
+
+    <script>
+        // 定义一个Vue过滤器
+        Vue.filter("lkFil", function(lk){
+            return lk.replace("篮球","足球")
+        })
+        new Vue({
+            el:"#app",
+            data:{
+                id:"",
+                name:"",
+                keywords:"",
+                lk:"我是一个lk，从曾经我也喜欢打篮球",
+                list:[
+                    {id:1,name:"宝马",time: new Date()},
+                    {id:2,name:"奔驰",time: new Date()}
+                ]
+            },
+            methods: {
+                add(){
+                    var obj={id:this.id,name:this.name,time:new Date()}
+                    this.list.push(obj)
+                    this.id=this.name=''
+                },
+                del(id){
+                    // this.list.some((item,index) => {
+                    //     if(item.id==id){
+                    //         this.list.splice(index,1)
+                    //         return true
+                    //     }
+                    // })
+                  var index=  this.list.findIndex((item) => {
+                        if(item.id==id){
+                            return true
+                        }
+                    })
+                    this.list.splice(index,1)
+                },
+                search(keywords){
+                    var newList=[]
+                    this.list.forEach(item => {
+                        if(item.name.indexOf(keywords)!=-1){
+                            newList.push(item)
+                        }
+                    })
+
+
+
+
+
+                    return newList
+                }
+            }
+        })
+    
+    
+    </script>
+</body>
+</html>

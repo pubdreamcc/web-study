@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>元素的相对位置和绝对位置</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .cc{
+            position: absolute;
+            top: 100px;
+            left: 100px;
+            height: 100px;
+            width: 100px;
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        相对位置：元素距离视口的距离；
+        绝对位置:元素到body的距离（body和html的margin和padding必须得清除掉）
+    -->
+    <div class="cc"></div>
+    <script>
+        window.onload=function(){
+            var cc=document.querySelector(".cc");
+            var result=cc.getBoundingClientRect();
+            console.log(result);
+        }
+    
+    
+    
+    
+    </script>
+</body>
+</html>

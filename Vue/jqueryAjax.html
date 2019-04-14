@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery-ajax</title>
+</head>
+<body>
+    <input type="text" placeholder="请输入你的用户名">
+    <input type="button" value="提交数据">
+</body>
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+    $("input:button").click(function(){
+
+    // $.get("./cc3.php","name=wangzhan",function(data){
+    //     console.log(data);
+    // })
+
+
+    $.ajax({
+        url:'./cc3.php',
+        type:"get",
+        data:"name='wangzhan'&age=15",
+        success:function(data){
+            console.log(data)
+        }
+    })
+    })
+
+
+
+</script>
+</html>

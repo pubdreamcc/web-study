@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>光斑动画</title>
+    <style>
+        body{
+            text-align: center;
+            background: black;
+        }
+        h1{
+            font: bold 100px "微软雅黑";
+            display: inline-block;
+            margin-top: 50px;
+            color: rgba(255, 255, 255, .3);
+            background-image: linear-gradient(120deg,rgba(255,255,255,0) 100px,rgba(255,255,255,1) 180px,rgba(255,255,255,0) 260px);
+            -webkit-background-clip: text;
+            background-repeat: no-repeat;    
+        }
+    </style>
+</head>
+<body>
+    <h1>王展爱陈梅婷</h1>
+    <script>
+        var h1=document.getElementsByTagName("h1")[0];
+        var flag=-160;
+        var timer=setInterval(function(){
+            flag+=10;
+            if(flag==700){
+                flag=-160;      
+            }           
+            h1.style.backgroundPosition=flag+"px";
+        },30)
+    </script>
+</body>
+</html>

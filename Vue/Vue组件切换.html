@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue组件切换</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <a href="" @click.prevent="flag=true">登陆</a><a href="" @click.prevent="flag=false">注册</a>
+        <login v-if="flag"></login>
+        <register v-else="flag"></register>
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+            components:{
+                login:{
+                    template:"<h1>登陆</h1>"
+                },
+                register:{
+                    template:"<h1>注册</h1>"
+                }
+            },
+            data:{
+                flag:true
+            }
+        })
+    
+    
+    
+    
+    </script>
+</body>
+</html>

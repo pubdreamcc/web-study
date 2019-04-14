@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>倒影</title>
+    <style>
+        .cc{
+            width: 150px;
+            height: 150px;
+            background: pink;
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            text-align: center;
+            line-height: 150px;
+            /* 设置div的倒影 */
+            -webkit-box-reflect: right 10px;
+        }
+        .cc2{
+            height: 200px;
+            width: 200px;
+            background: deeppink;
+            resize: both;
+            overflow: auto;
+        }
+        input{
+            width: 200px;
+            padding: 0 80px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="cc">王展和他的朋友</div>
+    <div class="cc2">王展和他的朋友</div>
+    <br><br>
+    <input type="text">
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>马赛克</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            height: 100%;
+            overflow: hidden;
+        }
+        #msk{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate3d(-50%,-50%,0);
+            /* background: gray; */
+        }
+    </style>
+</head>
+<body>
+    <canvas id="msk"></canvas>
+    <script>
+        window.onload=function(){
+            var oc=document.querySelector("#msk");
+            if(oc.getContext){
+                var ctx=oc.getContext("2d");
+                var img=new Image();
+                img.src="王展.jpg";
+                img.onload=function(){
+                    oc.width=img.width*2;
+                    oc.height=img.height;
+                    draw();
+                }
+            }
+            function draw(){
+                ctx.drawImage(img,0,0);
+                // debugger 在火狐浏览器下看没问题
+                var oldImgData=ctx.getImageData(0,0,img.width,img.height);
+                var newImgData=ctx.createImageData(img.width,img.height);
+                // 马赛克效果；
+                // 1, 设置一个马赛克矩形；
+                // 2，从马赛克矩形中选取任意一个点的像素信息；
+                // 3，设置马赛克矩形中每个点的像素为选取的像素；
+                var size=15;
+                for(var i=0;i<(oldImgData.width)/size;i++){
+                    for(var j=0;j<(oldImgData.height)/size;j++){
+                        var color=getPxInfo(oldImgData,i*size+Math.floor(Math.random()*size),j*size+Math.floor(Math.random()*size));
+                       
+                        for(var a=0;a<size;a++){
+                            for(var b=0;b<size;b++){
+                                setPxInfo(newImgData,a+i*size,b+j*size,color);
+                            }
+                        }
+                    }
+                }
+                ctx.clearRect(0,0,oc.width,oc.height);
+                ctx.putImageData(newImgData,0,0);
+            }
+                       
+                       
+                    
+            function getPxInfo(imageData,x,y){
+                var color=[];
+                var data=imageData.data;
+                var w=imageData.width;
+                var h=imageData.height;
+                color[0]=data[(y*w+x)*4];
+                color[1]=data[(y*w+x)*4+1];
+                color[2]=data[(y*w+x)*4+2];
+                color[3]=data[(y*w+x)*4+3];
+                return color;
+            }
+
+
+            // 定义一个函数用来设置画布中任意一个位置的像素信息；
+            function setPxInfo(imageData,x,y,color){
+                var data=imageData.data;
+                var w=imageData.width;
+                var h=imageData.height;
+                data[(y*w+x)*4]=color[0];
+                data[(y*w+x)*4+1]=color[1];
+                data[(y*w+x)*4+2]=color[2];
+                data[(y*w+x)*4+3]=color[3];
+            }
+        }
+    
+    
+    
+    </script>
+</body>
+</html>

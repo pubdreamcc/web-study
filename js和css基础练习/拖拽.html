@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>鼠标拖拽物体移动</title>
+    <style>
+        #cc{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+        }
+    
+    </style>
+    <script>
+        window.onload=function(){
+            var cc = document.getElementById("cc");
+            cc.onmousedown=function(){
+                var ol=event.clientX-cc.offsetLeft;
+                var ot=event.clientY-cc.offsetTop;
+
+                 // 曲线救国；
+                if(cc.setCapture){
+                    cc.setCapture();
+                }
+                document.onmousemove=function(){
+                    var left= event.clientX-ol;
+                    var top= event.clientY-ot;
+                    cc.style.left=left+"px";
+                    cc.style.top=top+"px";
+                }
+                document.onmouseup=function(){
+                    document.onmousemove=null;
+                   //alert("鼠标松开了");
+                    document.onmouseup=null;
+                    if(document.releaseCapture){
+                        document.releaseCapture();
+                    }
+                }
+              return false;
+            }
+            function narr(arr){
+                for(var i=0;i<arr.length;i++){
+                    for(var j=i+1;j<arr.length;j++){
+                        if(arr[i]==arr[j]){
+                            arr.splice(j,1);
+                             j--;
+                        }
+
+                    }
+                }
+                return arr;
+            }
+            var dd=[1,2,2,2,3,4,5,5,6,7,9,6];
+           //  alert(narr(dd));
+        }
+    
+    
+    </script>
+</head>
+<body>
+    我是一段文字
+    <div id="cc"></div>
+</body>
+</html>

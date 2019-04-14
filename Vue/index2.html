@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        .active{
+            color: red;
+        }
+        .thin{
+            font-style:initial;
+        }
+        .large{
+            font-size: 30px;
+        }
+    
+    
+    
+    </style>
+</head>
+<body>
+   
+    <div id="cc">
+        <p :class=["large"]>我是一段文字，qingkanwo d </p>
+        <h1 :style=[styleobj1,styleobj2]>我一哥白哦去，在深圳呢</h1>
+        <p v-for="(item) in info">{{item}}------</p>
+        <p v-for="count in 20">{{count}}</p>
+    </div>
+
+
+    <script>
+        new Vue({
+            el:"#cc",
+            data:{
+                styleobj1:{color:"red"},
+                styleobj2:{background: "pink"},
+                info:["王展","陈梅婷","王泉"]
+            }
+        })
+    
+    
+    
+    </script>
+</body>
+</html>

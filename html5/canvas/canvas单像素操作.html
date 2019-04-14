@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas01</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background: rgb(255, 192, 203);
+        }
+        #cc{
+            background: gray;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            margin: auto;
+        }
+    
+    </style>
+</head>
+<body>
+    <canvas id="cc" width="300" height="300"></canvas>
+    <script>
+        window.onload=function(){
+            // 获取画布元素；
+            var canvas=document.querySelector("#cc");
+            // 判断是否支持画笔
+            if(canvas.getContext){
+                // 定义一个画笔；
+                var ctx=canvas.getContext("2d");
+                // 获取整个画布的像素信息；
+                ctx.fillStyle="pink";
+                ctx.fillRect(50,50,100,100);
+                var imageData=ctx.getImageData(0,0,canvas.width,canvas.height);
+                for(var i=0;i<imageData.width;i++){
+                    setPxInfo(imageData,i,25,[0,0,0,255]);
+                }
+                ctx.putImageData(imageData,0,0);
+            }
+
+            // 定义一个函数用来获取画布中每一个像素点的信息；
+            function getPxInfo(imageData,x,y){
+                var color=[];
+                var data=imageData.data;
+                var w=imageData.width;
+                var h=imageData.height;
+                color[0]=data[(y*w+x)*4];
+                color[1]=data[(y*w+x)*4+1];
+                color[2]=data[(y*w+x)*4+2];
+                color[3]=data[(y*w+x)*4+3];
+                return color;
+            }
+
+
+            // 定义一个函数用来设置画布中任意一个位置的像素信息；
+            function setPxInfo(imageData,x,y,color){
+                var data=imageData.data;
+                var w=imageData.width;
+                var h=imageData.height;
+                data[(y*w+x)*4]=color[0];
+                data[(y*w+x)*4+1]=color[1];
+                data[(y*w+x)*4+2]=color[2];
+                data[(y*w+x)*4+3]=color[3];
+            }
+        }
+    </script>
+</body>
+</html>

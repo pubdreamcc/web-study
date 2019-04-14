@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>路由实现经典布局</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router@2.0.0/dist/vue-router.js"></script>
+    <style>
+        .head{
+            background: pink;
+            height: 80px;
+        }
+        .left{
+            float: left;
+            height: 800px;
+            width: 320px;
+            background: red;
+        }
+        .main{
+            float: left;
+            height: 800px;
+            width: 1000px;
+            background: yellowgreen;
+        }
+    
+    
+    </style>
+</head>
+<body>
+    <div id="app">
+        <router-view></router-view>
+        <router-view name="left"></router-view>
+        <router-view name="main"></router-view>
+
+    </div>
+    
+
+
+    <script>
+        var hdader={
+            template:"<div class='head'>head头部区域</div>"
+        }
+        var left={
+            template:"<div class='left'>left侧边区域区域</div>"
+        }
+        var content={
+            template:"<div class='main'>主体部分区域</div>"
+        }
+
+        // 创造一个vue实例
+        var router = new VueRouter({
+            routes: [
+                {path:"/",components:
+                {
+                    left:left,
+                    main:content,
+                    default:hdader
+                }
+            }]
+        })
+
+        new Vue({
+            el:"#app",
+            data:{},
+            methods: {
+                
+            },
+            router
+        })
+    
+    
+    
+    </script>
+</body>
+</html>

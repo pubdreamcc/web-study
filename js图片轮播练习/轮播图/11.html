@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>获取元素的样式</title>
+    <script src="../tools/tool.js"></script>
+    <style>
+        #box1{
+            width: 200px;
+            height: 300px;
+            background-color: red;
+        }
+    
+    </style>
+    <script>
+        window.onload=function(){
+            var box1=document.getElementById("box1");
+            var cc=getComputedStyle(box1,null).backgroundColor;
+            console.log(cc);
+        }   
+    
+    </script>
+</head>
+<body>
+    <div id="box1"></div>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>tab选项卡切换练习</title>
+    <style>
+        body,ul,li{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style-type: none;
+        }
+        .container{
+            width: 800px;
+            margin: 50px auto;
+        }
+        .header{
+            /* width:800px; */
+            height: 50px;
+            /* border: 1px solid black; */
+        }
+        .head-list li{
+            float: left;
+            width: 200px;
+            height: 50px;
+            text-align: center;
+            background: black;
+            color: #fff;
+            font-size: 16px;
+            line-height: 50px;
+            cursor: pointer;
+        }
+        .head-list .bgsty{
+            background: red;
+            color: #bfa;
+        }
+        .clearfix::before,.clearfix::after{
+            display: table;
+            content: "";
+        }
+        .clearfix::after{
+            clear: both;
+        }
+        .content-list{
+            display: none;
+        }
+        .content .active{
+            display: block;
+        }
+        .content-list li{
+            float: left;
+            width: 150px;
+            background: yellowgreen;
+            height: 150px;
+            margin: 0 25px;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            // 获取所有的头部li；
+            var liArr=document.getElementsByClassName("op");
+            // 获取所有content中所有的ul；
+            var ulArr=document.getElementsByClassName("content-list");
+            for(var i=0;i<liArr.length;i++){
+                // 给每一个li添加一个标志属性；
+                liArr[i].num=i;
+                // 为每一个li绑定一个单击响应函数；
+                liArr[i].onclick=function(){
+                    // 设置未选中的li和下面ul的默认类名不变；
+                    for(var j=0;j<liArr.length;j++){
+                        liArr[j].className="op";
+                        ulArr[j].className="content-list clearfix";
+                    }
+                    // 修改当前点击的li的类名；
+                    this.className="op bgsty";
+                    // // 设置未选中的ul为默认状态；
+                    // for(var k=0;k<ulArr.length;k++){
+                    //     ulArr[k].className="content-list clearfix";
+                    // }
+                    // 设置下面对应ul的显示状态；
+                    ulArr[this.num].className="content-list clearfix active";
+                }
+            }
+        };  
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <ul class="head-list clearfix">
+                <li class="op bgsty">选项一</li>
+                <li class="op">选项二</li>
+                <li class="op">选项三</li>
+                <li class="op">选项四</li>
+            </ul>
+        </div>
+        <div class="content">
+            <ul class="content-list clearfix active">
+                <li>百度</li>
+                <li>阿里</li>
+                <li>新浪</li>
+                <li>腾讯</li>
+            </ul>
+            <ul class="content-list clearfix">
+                <li>恒纬祥</li>
+                <li>荣强</li>
+                <li>医博传人</li>
+                <li>newlook</li>
+            </ul>
+            <ul class="content-list clearfix">
+                <li>湖北</li>
+                <li>福建</li>
+                <li>山西</li>
+                <li>云南</li>
+            </ul>
+            <ul class="content-list clearfix">
+                <li>王展</li>
+                <li>陈梅婷</li>
+                <li>王泉</li>
+                <li>王三</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

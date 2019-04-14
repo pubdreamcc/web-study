@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax</title>
+    <script src="jquery-2.1.3.min.js"></script>
+    <script>
+        // window.onload=function(){
+        //     var btn=document.querySelector("button");
+        //     btn.onclick=function(){
+        //         var xhr=new XMLHttpRequest();
+        //         xhr.open("GET","wangzhan.txt");
+        //         xhr.send(null);
+        //         xhr.onreadystatechange=function(){
+        //             if(xhr.readyState==4 && xhr.status==200){
+        //                 document.querySelector("div").innerHTML="xhr.responseText";
+        //             }
+        //         }
+        //     }
+        // }
+        // $(function(){
+        //     $("button").click(function(){
+        //         $.get("wangzhan.txt",{id:2},function(res){
+        //             $("div").html("res")
+        //         })
+        //     })            
+        // })
+        $(function(){
+            $("button").click(function(){
+                $.post("wangzhan.txt",{id:1,name:"wangcc"},function(res){
+                    $("div").html(res)   
+                })
+            }  )     
+        })
+    
+    </script>
+</head>
+<body>
+    <div class="cc">王展是一个好孩子</div>
+    <button>点我发送请求</button>
+</body>
+</html>

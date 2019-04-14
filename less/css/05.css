@@ -1,0 +1,29 @@
+.outer {
+  width: 400px;
+  height: 400px;
+  margin: 100px auto;
+  position: relative;
+  border: 1px solid black;
+}
+.outer .inner {
+  width: 100px;
+  height: 100px;
+  background-color: #ffc0cb;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  margin: auto;
+}
+.outer .inner2 {
+  width: 10px;
+  height: 10px;
+  background-color: #ffc0cb;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  margin: auto;
+}
