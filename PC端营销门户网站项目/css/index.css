@@ -1,0 +1,668 @@
+.clearfix::before,
+.clearfix::after {
+  content: "";
+  display: table;
+}
+.clearfix::after {
+  clear: both;
+}
+.wrap {
+  height: 100%;
+}
+.header {
+  background: white;
+}
+.header .container {
+  position: relative;
+  height: 80px;
+  width: 1100px;
+  margin: 0 auto;
+}
+.header .container .logo {
+  float: left;
+  margin-top: 30px;
+}
+.header .container .music {
+  float: left;
+  width: 14px;
+  height: 14px;
+  margin: 50px 0 0 5px;
+  background: url(../img/musicon.gif) no-repeat;
+}
+.header .container .nav-list {
+  float: right;
+  margin-top: 50px;
+}
+.header .container .nav-list > ul > li {
+  float: left;
+  margin-left: 40px;
+  position: relative;
+}
+.header .container .nav-list > ul > li .up {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  overflow: hidden;
+  color: black;
+  transition: 1s width;
+}
+.header .container .nav-list > ul > li:hover .up {
+  width: 100%;
+}
+.header .container .head-arrow {
+  height: 11px;
+  width: 21px;
+  position: absolute;
+  transition: 1s left;
+  left: 50%;
+  bottom: -11px;
+  z-index: 2;
+  background: url(../img/menuIndicator.png) no-repeat;
+}
+.loadAn {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 100;
+}
+.loadAn div {
+  height: 50%;
+  background: deepskyblue;
+  transition: 1s height;
+}
+.loadAn .down {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+.loadAn .line {
+  width: 0;
+  height: 4px;
+  background-color: white;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-top: -2px;
+  transition: 1s width;
+}
+.wrap .content {
+  background: gray;
+  position: relative;
+  overflow: hidden;
+}
+.wrap .content .dot {
+  position: fixed;
+  z-index: 99;
+  right: 10px;
+  top: 50%;
+}
+.wrap .content .dot li {
+  width: 10px;
+  height: 10px;
+  border: 5px solid pink;
+  border-radius: 50%;
+  margin-top: 10px;
+}
+.wrap .content .dot .active {
+  background: white;
+}
+.wrap .content > ul > li > div {
+  width: 1100px;
+  height: 520px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+.wrap .content .list {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  transition: 1s top;
+}
+.wrap .content .list > li {
+  position: relative;
+  background-position: 50% 50% !important;
+}
+.wrap .content .list .home {
+  background: url(../img/bg1.jpg) no-repeat;
+}
+.wrap .content .list .home .home1 {
+  height: 100%;
+  transition: 1s transform,1s opacity;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+.wrap .content .list .home .home1 li {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  visibility: hidden;
+}
+.wrap .content .list .home .home1 li .firstLayer {
+  height: 100%;
+}
+.wrap .content .list .home .home1 li .firstLayer img {
+  height: 400px;
+  margin: 50px 0 0 50px;
+}
+.wrap .content .list .home .home1 li .firstLayer .title1 {
+  position: absolute;
+  right: 310px;
+  top: 110px;
+}
+.wrap .content .list .home .home1 li .firstLayer .title1 h1 {
+  font-size: 40px;
+  color: black;
+  font-family: "微软雅黑";
+  text-align: center;
+  text-shadow: 5px 1px 4px rgba(25, 25, 25, 0.8);
+}
+.wrap .content .list .home .home1 li .firstLayer .title1 h2 {
+  font-size: 30px;
+  color: black;
+  font-family: "微软雅黑";
+  text-align: center;
+  margin-top: 30px;
+}
+.wrap .content .list .home .home1 li .firstLayer .title2 {
+  position: absolute;
+  right: 250px;
+  top: 345px;
+}
+.wrap .content .list .home .home1 li .firstLayer .title2 p {
+  font-size: 20px;
+  color: blueviolet;
+  text-align: left;
+  font-style: initial;
+  margin-bottom: 20px;
+}
+.wrap .content .list .home .home1 li .firstLayer .title2 span.name {
+  margin-left: 10px;
+  color: crimson;
+}
+.wrap .content .list .home .home1 li .twoLayer img {
+  height: 400px;
+  margin: 50px 0 0 50px;
+}
+.wrap .content .list .home .home1 li .twoLayer > div {
+  position: absolute;
+  right: 310px;
+  top: 110px;
+  color: pink;
+  font-size: 60px;
+}
+.wrap .content .list .home .home1 li.active {
+  visibility: visible;
+}
+.wrap .content .list .home .home1 li.leftHide {
+  visibility: hidden;
+  animation: leftHide 1s linear 1;
+}
+.wrap .content .list .home .home1 li.rightShow {
+  visibility: visible;
+  animation: rightShow 1s linear 1;
+}
+.wrap .content .list .home .home1 li.leftShow {
+  visibility: visible;
+  animation: leftShow 1s linear 1;
+}
+.wrap .content .list .home .home1 li.rightHide {
+  visibility: hidden;
+  animation: rightHide 1s linear 1;
+}
+.wrap .content .list .home .home1 li:nth-child(1) {
+  background: #dc6c5f;
+}
+.wrap .content .list .home .home1 li:nth-child(2) {
+  background: #95dc84;
+}
+.wrap .content .list .home .home1 li:nth-child(3) {
+  background: #64b9d2;
+}
+.wrap .content .list .home .home1 li:nth-child(4) {
+  background: #000000;
+}
+.wrap .content .list .home .home2 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  transition: 1s transform,1s opacity;
+}
+.wrap .content .list .home .home2 li {
+  display: inline-block;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 4px rgba(25, 25, 25, 0.8);
+  cursor: pointer;
+}
+.wrap .content .list .home .home2 li.active {
+  cursor: default;
+  background: white;
+}
+.wrap .content .list .course {
+  background: url(../img/bg2.jpg) no-repeat;
+  overflow: hidden;
+}
+.wrap .content .list .course .course1 {
+  position: relative;
+  z-index: 2;
+  margin: 50px;
+}
+.wrap .content .list .course .course2 {
+  position: relative;
+  z-index: 2;
+  width: 400px;
+  margin-left: 50px;
+}
+.wrap .content .list .course .course3 {
+  position: absolute;
+  z-index: 2;
+  right: 50px;
+  top: 70px;
+  width: 480px;
+}
+.wrap .content .list .course .course3 .items {
+  perspective: 500px;
+  transform-style: preserve-3d;
+  position: relative;
+  float: left;
+  width: 120px;
+  height: 132px;
+}
+.wrap .content .list .course .course3 .items .backFace {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-position: 50% 50% !important;
+  transition: 1s transform;
+}
+.wrap .content .list .course .course3 .items:nth-of-type(1) > .backFace {
+  background: url(../img/apcoa.png) no-repeat;
+}
+.wrap .content .list .course .course3 .items:nth-of-type(2) > .backFace {
+  background: url(../img/binoli.png) no-repeat;
+}
+.wrap .content .list .course .course3 .items:nth-of-type(3) > .backFace {
+  background: url(../img/bks.png) no-repeat;
+}
+.wrap .content .list .course .course3 .items:nth-of-type(4) > .backFace {
+  background: url(../img/gu.png) no-repeat;
+}
+.wrap .content .list .course .course3 .items:nth-of-type(5) > .backFace {
+  background: url(../img/hlx.png) no-repeat;
+}
+.wrap .content .list .course .course3 .items:nth-of-type(6) > .backFace {
+  background: url(../img/lbs.png) no-repeat;
+}
+.wrap .content .list .course .course3 .items:nth-of-type(7) > .backFace {
+  background: url(../img/leonberg.png) no-repeat;
+}
+.wrap .content .list .course .course3 .items:nth-of-type(8) > .backFace {
+  background: url(../img/pcwelt.png) no-repeat;
+}
+.wrap .content .list .course .course3 .items:nth-of-type(9) > .backFace {
+  background: url(../img/lbs.png) no-repeat;
+}
+.wrap .content .list .course .course3 .items:nth-of-type(10) > .backFace {
+  background: url(../img/tata.png) no-repeat;
+}
+.wrap .content .list .course .course3 .items:nth-of-type(11) > .backFace {
+  background: url(../img/lbs.png) no-repeat;
+}
+.wrap .content .list .course .course3 .items:nth-of-type(12) > .backFace {
+  background: url(../img/lbs.png) no-repeat;
+}
+.wrap .content .list .course .course3 .items .face {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  color: white;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+  transition: 1s transform;
+  background: #009ee0;
+  box-sizing: border-box;
+  padding: 15px;
+}
+.wrap .content .list .course .course3 .items:hover > .face {
+  transform: rotateY(360deg);
+}
+.wrap .content .list .course .course3 .items:hover > .backFace {
+  transform: rotateY(180deg);
+}
+.wrap .content .list .course .course3 span {
+  position: absolute;
+  width: 9px;
+  height: 410px;
+  background: url(../img/plus_row.png) no-repeat;
+  top: -7px;
+}
+.wrap .content .list .course .course3 span:nth-of-type(1) {
+  left: -5px;
+}
+.wrap .content .list .course .course3 span:nth-of-type(2) {
+  left: 115px;
+}
+.wrap .content .list .course .course3 span:nth-of-type(3) {
+  left: 235px;
+}
+.wrap .content .list .course .course3 span:nth-of-type(4) {
+  left: 355px;
+}
+.wrap .content .list .course .course3 span:nth-of-type(5) {
+  left: 475px;
+}
+.wrap .content .list .course .plane1 {
+  width: 359px;
+  height: 283px;
+  background: url(../img/plane1.png) no-repeat;
+  position: absolute;
+  left: 300px;
+  top: -100px;
+  transition: 1s transform;
+}
+.wrap .content .list .course .plane2 {
+  width: 309px;
+  height: 249px;
+  background: url(../img/plane2.png) no-repeat;
+  position: absolute;
+  left: -100px;
+  top: 200px;
+  transition: 1s transform;
+}
+.wrap .content .list .course .plane3 {
+  width: 230px;
+  height: 182px;
+  background: url(../img/plane3.png) no-repeat;
+  position: absolute;
+  left: 300px;
+  top: 400px;
+  transition: 1s transform;
+}
+.wrap .content .list .works {
+  background: url(../img/bg4.jpg) no-repeat;
+  overflow: hidden;
+}
+.wrap .content .list .works .works1 {
+  margin: 50px 0 100px 50px;
+  position: relative;
+  z-index: 2;
+}
+.wrap .content .list .works .works2 {
+  margin-left: 50px;
+  position: relative;
+  z-index: 2;
+}
+.wrap .content .list .works .works2 .item {
+  position: relative;
+  float: left;
+  width: 220px;
+  height: 133px;
+  margin: 0 1px;
+  overflow: hidden;
+}
+.wrap .content .list .works .works2 .item:last-child {
+  width: 332px;
+}
+.wrap .content .list .works .works2 .item .mask {
+  box-sizing: border-box;
+  padding: 10px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: #000000;
+  opacity: 0;
+  color: white;
+  transition: 1s opacity;
+}
+.wrap .content .list .works .works2 .item .mask .icon {
+  width: 32px;
+  height: 34px;
+  margin: 10px auto;
+  transition: 1s background-position;
+  background: url(../img/zoomico.png) no-repeat;
+}
+.wrap .content .list .works .works2 .item .mask .icon:hover {
+  background-position: 0 -36px;
+}
+.wrap .content .list .works .works2 .item:hover > .mask {
+  opacity: 0.8;
+}
+.wrap .content .list .works .works2 .item:hover > img {
+  transform: rotate(30deg) scale(1.5);
+}
+.wrap .content .list .works .works2 .item img {
+  transition: 1s transform;
+}
+.wrap .content .list .works .works3 {
+  background: url(../img/robot.png) no-repeat;
+  width: 167px;
+  height: 191px;
+  position: absolute;
+  left: 900px;
+  top: 170px;
+  z-index: 2;
+  animation: works3move 4s linear infinite;
+}
+.wrap .content .list .works .pencil1 {
+  width: 180px;
+  height: 97px;
+  background: url(../img/pencel1.png) no-repeat;
+  position: absolute;
+  transition: 1s;
+  left: 500px;
+  top: 0;
+  transition: 1s transform;
+}
+.wrap .content .list .works .pencil2 {
+  width: 268px;
+  height: 38px;
+  background: url(../img/pencel2.png) no-repeat;
+  position: absolute;
+  transition: 1s;
+  left: 300px;
+  top: 250px;
+  transition: 1s transform;
+}
+.wrap .content .list .works .pencil3 {
+  width: 441px;
+  height: 231px;
+  background: url(../img/pencel3.png) no-repeat;
+  position: absolute;
+  transition: 1s;
+  left: 650px;
+  top: 300px;
+  transition: 1s transform;
+}
+.wrap .content .list .about {
+  background: url(../img/bg3.jpg) no-repeat;
+  overflow: hidden;
+}
+.wrap .content .list .about .about1 {
+  margin: 50px 0 100px 50px;
+}
+.wrap .content .list .about .about2 {
+  width: 400px;
+  margin-left: 50px;
+}
+.wrap .content .list .about .about3 {
+  position: absolute;
+  left: 50%;
+  top: -100px;
+  background: url(../img/greenLine.png) no-repeat;
+  width: 357px;
+  height: 998px;
+}
+.wrap .content .list .about .about4 > div {
+  position: absolute;
+  width: 260px;
+  height: 200px;
+  border: 5px solid rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  z-index: 2;
+  overflow: hidden;
+  transition: 1s transform;
+}
+.wrap .content .list .about .about4 > div span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  transition: 1s transform;
+  transform: scale(1.5);
+}
+.wrap .content .list .about .about4 > div ul {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+.wrap .content .list .about .about4 > div ul li {
+  float: left;
+  position: relative;
+  overflow: hidden;
+}
+.wrap .content .list .about .about4 > div ul li img {
+  position: absolute;
+  transition: 1s left,1s top;
+}
+.wrap .content .list .about .about4 > .items:nth-child(1) {
+  left: 750px;
+  top: 50px;
+}
+.wrap .content .list .about .about4 > .items:nth-child(1) span {
+  background: url(../img/about2.jpg) no-repeat;
+}
+.wrap .content .list .about .about4 > .items:nth-child(1):hover span {
+  transform: scale(1);
+}
+.wrap .content .list .about .about4 > .items:nth-child(2) {
+  left: 600px;
+  top: 290px;
+}
+.wrap .content .list .about .about4 > .items:nth-child(2) span {
+  background: url(../img/about4.jpg) no-repeat;
+}
+.wrap .content .list .about .about4 > .items:nth-child(2):hover span {
+  transform: scale(1);
+}
+.wrap .content .list .team {
+  background: url(../img/bg5.jpg) no-repeat;
+}
+.wrap .content .list .team .team1 {
+  width: 400px;
+  margin: 50px;
+  float: left;
+  transition: 1s transform;
+}
+.wrap .content .list .team .team2 {
+  width: 400px;
+  margin: 50px;
+  float: right;
+  transition: 1s transform;
+}
+.wrap .content .list .team .team3 {
+  position: absolute;
+  width: 944px;
+  height: 448px;
+  left: 78px;
+  top: 250px;
+}
+.wrap .content .list .team .team3 canvas {
+  position: absolute;
+  top: 0;
+}
+.wrap .content .list .team .team3 ul > li {
+  float: left;
+  width: 118px;
+  height: 448px;
+  background: url(../img/team.png) no-repeat;
+  transition: 1s opacity;
+}
+.wrap .content .list .commonTitle {
+  color: #009ee0;
+  font-size: 80px;
+  line-height: 0.8;
+  font-weight: bold;
+  letter-spacing: -5px;
+}
+.wrap .content .list .commonText {
+  color: white;
+  line-height: 1.5;
+  font-size: 15px;
+}
+@keyframes works3move {
+  0% {
+    transform: translateX(0px) rotateY(0deg);
+  }
+  49% {
+    transform: translateX(-490px) rotateY(0deg);
+  }
+  50% {
+    transform: translateX(-500px) rotateY(180deg);
+  }
+  100% {
+    transform: translateX(0px) rotateY(180deg);
+  }
+}
+@keyframes leftHide {
+  0% {
+    visibility: visible;
+  }
+  50% {
+    transform: translateX(-40%) rotateY(30deg) scale(0.8);
+  }
+  100% {
+    transform: translateZ(-200px);
+  }
+}
+@keyframes rightShow {
+  0% {
+    visibility: hidden;
+    transform: translateZ(-200px);
+  }
+  50% {
+    transform: translateX(40%) rotateY(-30deg) scale(0.8);
+  }
+}
+@keyframes leftShow {
+  0% {
+    transform: translateZ(-200px);
+    visibility: hidden;
+  }
+  50% {
+    transform: translateX(-40%) rotateY(30deg) scale(0.8);
+  }
+}
+@keyframes rightHide {
+  0% {
+    visibility: visible;
+  }
+  50% {
+    transform: translateX(40%) rotateY(-30deg) scale(0.8);
+  }
+  100% {
+    transform: translateZ(-200px);
+  }
+}
