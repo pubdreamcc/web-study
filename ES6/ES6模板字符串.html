@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>ES6模板字符串</title>
+</head>
+<body>
+    <script>
+        let obj={name : "wangzhan",age:"23"}
+        let str=`我的名字是：${obj.name},我今年年龄是${obj.age}.`
+        console.log(str)
+
+
+        // 同名的属性可以简写
+        let x="wangz"
+        let y=22
+        let obj1={
+            x,
+            y,
+            getname(){
+                return this.x
+            }
+        }
+    
+        console.log(obj1.getname())
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Promise对象的原理</title>
+</head>
+<body>
+    
+
+
+    <script>
+        // 创建一个Promise对象的实例
+        let promise=new Promise((resolve,reject)=>{
+            //这里的代码是同步的
+            console.log("cc")
+            setTimeout(() => {
+                console.log("我是异步的代码")
+               // resolve("哈哈，成功了")
+               reject("wuwu,shibail")
+            }, 2000);
+        })
+        // console.log("ccis")
+        promise.then((data)=>{
+            //异步操作成功的回调
+            console.log(data)
+        },(error)=>{
+            console.log(error)
+        })
+    
+    
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>AMD</title>
+</head>
+<body>
+  <!-- AMD是RequireJs在推广过程中对模块化定义规范化产出 (异步模块定义)
+    前端用的比较多，依赖前置
+  -->
+
+  <script>
+    define(['package/lib'], function(lib) {
+      function foo() {
+        lib.log('hello world!')
+      }
+      return {
+        foo: foo
+      }
+    });
+  </script>
+</body>
+</html>
