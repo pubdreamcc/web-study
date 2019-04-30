@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>函数节流</title>
+  <style>
+  #cc{
+    border: 1px solid black;
+    width: 200px;
+    height: 200px;
+    overflow: scroll
+  }
+  #cc p{
+    height: 2000px;
+  }
+  
+  
+  </style>
+</head>
+<body>
+  <div id="cc">
+    <p></p>
+  </div>
+  <script>
+    // 函数节流
+    // 一定时间内核心代码只执行一次
+    // document.getElementById('cc').onscroll=function(){
+    //   console.log('普通滚动')
+    // }
+    
+    let flag=true;
+    document.getElementById('cc').onscroll=function(){
+      // 函数节流
+      if(!flag){
+        return
+      }
+      flag=false
+      setTimeout(function(){
+        console.log('函数节流')
+        flag=true
+      },1000)
+    }
+  
+  
+  </script>
+</body>
+</html>

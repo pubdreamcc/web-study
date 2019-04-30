@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>函数防抖</title>
+</head>
+<body>
+  <input type="text" id="cc">
+  <script>
+    // 函数防抖
+    // 事件高频率触发，只有在一定时间间隔内没有触发，事件才会触发一此
+    // document.getElementById('cc').oninput=function(){
+    //   console.log('普通打印'+this.value)
+    // }
+    let timer;
+    document.getElementById('cc').oninput=function(){
+      clearTimeout(timer)
+      timer=setTimeout(() => {
+        console.log('函数防抖'+this.value)
+      }, 1000);
+    }
+  
+  </script>
+</body>
+</html>
