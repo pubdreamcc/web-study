@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://unpkg.com/better-scroll/dist/bscroll.min.js"></script>
+  <title>Document</title>
+  <style>
+    .wrap{
+      height: 300px;
+      width: 500px;
+      overflow: hidden;
+    }
+    .wrap .content{
+      height: 600px;
+      width: 500px;
+      background: #bfa;
+    }
+  
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="content"></div>
+  </div>
+  <script>
+    var wrap = document.getElementsByClassName('wrap')[0]
+    var scrollcc = new BScroll(wrap, {
+      pullDownRefresh: true
+    }) 
+    scrollcc.on('pullingDown', () => {
+      console.log('哈哈下拉刷新了。。。')
+      setTimeout(() => {
+        scrollcc.finishPullDown()
+      }, 3000)
+    })
+  
+  
+  </script>
+</body>
+</html>
