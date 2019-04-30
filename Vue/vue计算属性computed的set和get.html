@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script  src="https://cdn.bootcss.com/vue/2.6.9/vue.min.js"></script>
+  <title>set和get</title>
+</head>
+<body>
+  <div id="app">
+    首名：<input type="text" v-model="firstName">
+    大名:<input type="text" v-model="lastName">
+    全名:<input type="text" v-model="fullName">
+  </div>
+
+  <script>
+   let vm= new Vue({
+      el:'#app',
+      data:{
+        firstName:'',
+        lastName:''
+      },
+      computed: {
+        fullName:{
+          get(){
+            return this.firstName+" "+this.lastName
+          },
+          set(value){
+            console.log(value)
+          }
+        }
+      }
+    })
+    let arr=[12,23,5,56,78]
+    //来一个方法实现数组内元素求和
+    let arr2=  arr.reduce((preValue,currentValue)=>{
+      return preValue+currentValue
+    },0)
+    console.log(arr,arr2)
+  </script>
+</body>
+</html>
