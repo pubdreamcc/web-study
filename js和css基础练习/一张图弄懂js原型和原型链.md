@@ -4,7 +4,7 @@ JavaScript的原型和原型链是面试的时候经常被问及到的问题，�
 
 下面我来引入这张非常经典的图，我也是亲手画了下，大家也可以自己动手去画，对理解原型及原型链有很大的帮助。
 
-![图片](js和css基础练习/2418690-5d2b5b99c77e9fc7..png)
+![图片](https://upload-images.jianshu.io/upload_images/2418690-5d2b5b99c77e9fc7..png?imageMogr2/auto-orient/strip%7CimageView2/2/w/611/format/webp)
 
 这张图详细的描述了构造函数`Function`，`Object`以及它们实例之间的原型关系。
 
