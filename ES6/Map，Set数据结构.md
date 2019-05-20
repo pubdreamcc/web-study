@@ -29,13 +29,16 @@
 * clear(): 将这个Map中的所有元素删除
 
 ```javascript
-const set = new Set([['a', 1],['b', 2]])
-const m1 = new Map(set)
-m1.get('a')  // 1
+const m1 = new Map([['a', 111], ['b', 222]])
+console.log(m1) // {"a" => 111, "b" => 222}
+m1.get('a')  // 111
 
 const m2 = new Map([['c', 3]])
 const m3 = new Map(m2)
 m3.get('c') // 3
+m3.has('c') // true
+m3.set('d', 555)
+m3.get('d') // 555
 ```
 
 3. 遍历方法
