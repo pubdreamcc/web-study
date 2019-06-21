@@ -1,0 +1,25 @@
+<!--pages/logs/logs.wxml-->
+<import src='/pages/template/template.wxml' />  
+<view>
+  <view class='carousel'>
+    <swiper indicator-dots indicator-color='yellowgreen' indicator-active-color='pink' autoplay circular catchtap='carouselToDetail'>
+      <swiper-item> 
+        <image src='/images/detail/carousel/01.jpg' data-index='1'></image>
+      </swiper-item>
+      <swiper-item> 
+        <image src='/images/detail/carousel/02.jpg' data-index='0'></image>
+      </swiper-item>
+      <swiper-item> 
+        <image src='/images/detail/carousel/03.jpg' data-index='2'></image>
+      </swiper-item>
+      <swiper-item> 
+        <image src='/images/detail/carousel/04.jpg' data-index='4'></image>
+      </swiper-item>
+    </swiper>
+  </view>
+  <block wx:for='{{ dataList }}' wx:key='{{ index }}'>
+    <view catchtap='toDetail' data-index='{{ index }}'>
+      <template is='list'  data='{{...item}}'/>
+    </view>
+  </block>
+</view>

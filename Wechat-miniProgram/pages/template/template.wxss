@@ -1,0 +1,42 @@
+.userImg{
+  width: 60rpx;
+  height: 60rpx;
+  margin-right: 15rpx;
+  vertical-align: middle;
+  margin-top: 10rpx;
+  margin-left: 10rpx;
+}
+.time{
+  font: 32rpx;
+  margin-top: 10rpx;
+}
+.topic{
+  font: 700 36rpx '微软雅黑';
+  color: black;
+  margin-top: 10rpx;
+  margin-left: 10rpx;
+}
+.contentImg{
+  width: 100%;
+  height: 430rpx;
+  margin-top: 10rpx;
+}
+.content{
+  font-size: 30rpx;
+  text-indent: 60rpx;
+  display: block;
+}
+.collection-love{
+  margin-top: 10rpx;
+  padding-left: 10rpx; 
+}
+.collection-love image{
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 15rpx;
+  vertical-align: middle;
+}
+.collection-love text{
+  font-size: 26rpx;
+  margin-right: 15rpx;
+}

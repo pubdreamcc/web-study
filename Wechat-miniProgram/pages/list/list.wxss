@@ -1,0 +1,10 @@
+/* pages/logs/logs.wxss */
+@import '/pages/template/template.wxss';
+.carousel swiper{
+  width: 100%;
+  height: 400rpx;
+}
+.carousel swiper image{
+  width: 100%;
+  height: 100%;
+}

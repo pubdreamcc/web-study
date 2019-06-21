@@ -1,0 +1,43 @@
+/* pages/movieDetail/movieDetail.wxss */
+.movieDetailContainer{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.movieImg{
+  width: 80%;
+  margin: 15rpx 0;
+  height: 700rpx;
+}
+.movieTitle{
+  font-size: 38rpx;
+  font-weight: 600;
+  margin-bottom: 15rpx;
+}
+.movieInfo{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.movieScore{
+  font-size: 32rpx;
+  margin-bottom: 15rpx;
+}
+.movieDirector{
+  font-size: 32rpx;
+  margin-bottom: 15rpx;
+}
+.movieActor{
+  font-size: 32rpx;
+  margin-bottom: 15rpx;
+}
+.toMovie{
+  width: 60%;
+  margin-top: 25rpx; 
+}
+.toMovie button{
+  font-size: 36rpx;
+  color: #fff;
+  background: #489B81;
+}

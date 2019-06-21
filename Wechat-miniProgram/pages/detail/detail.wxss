@@ -1,0 +1,69 @@
+/* pages/detail/detail.wxss */
+.detailContainer{
+  display: flex;
+  flex-direction: column;
+}
+.detailContainer .headerImg image{
+  width: 100%;
+  height: 460rpx;
+}
+.detailContainer .headerImg{
+  position: relative;
+}
+.detailContainer .headerImg .music{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  width: 60rpx;
+  height: 60rpx;
+}
+.releaseName-date{
+  padding: 15rpx 0 0 10rpx;
+}
+.releaseName-date image{
+  width: 64rpx;
+  height: 64rpx;
+  margin-right: 10rpx;
+  vertical-align: middle;
+}
+.releaseName-date text{
+  font-size: 32rpx;
+  font-weight: 600;
+  margin-right: 10rpx;
+}
+.contentTitle{
+  font-size: 34rpx;
+  font-weight: 700;
+  padding-left: 15rpx; 
+}
+.collection-share-container{
+  position: relative;
+}
+.collection-share{
+  float: right;
+  margin-right: 50rpx;
+}
+.collection-share image{
+  margin-right: 15rpx;
+  width: 90rpx;
+  height: 90rpx;
+}
+.line{
+  width: 90%;
+  height: 1rpx;
+  background-color: #eee;
+  position: absolute;
+  top: 45rpx;
+  left: 5%;
+  z-index: -1;
+}
+.relay{
+  font-size: 32rpx;
+  margin-top: 15rpx;
+  margin-bottom: 15rpx;
+}
+.content{
+  font-size: 30rpx;
+  text-indent: 60rpx;
+}

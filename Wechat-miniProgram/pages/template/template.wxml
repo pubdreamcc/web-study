@@ -1,0 +1,15 @@
+<template name='list'>
+  <image src='{{ avatar }}' class='userImg'></image>
+    <text class='time'>{{ date }}</text>
+    <view>
+      <text class='topic'>{{title}}</text>
+    </view>
+    <image src='{{ detail_img}}' class='contentImg'></image>
+    <text class='content'>{{ detail_content }}</text>
+    <view class='collection-love'>
+      <image src='/images/icon/star.png'></image>
+      <text>{{ love_count }}</text>
+      <image src='{{detail_love_image2}}'></image>
+      <text>{{ attention_count }}</text>
+    </view>
+  </template>

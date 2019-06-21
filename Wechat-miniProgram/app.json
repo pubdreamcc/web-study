@@ -1,0 +1,38 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/list/list",
+    "pages/detail/detail",
+    "pages/movie/movie",
+    "pages/movieDetail/movieDetail"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#489B81",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "微信小程序",
+    "backgroundTextStyle": "light",
+    "enablePullDownRefresh": true
+  },
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "color": "#000000",
+    "selectedColor": "#489B81",
+    "list": [
+      {
+        "pagePath": "pages/list/list",
+        "text": "文字",
+        "iconPath": "/images/tab/yuedu.png",
+        "selectedIconPath": "/images/tab/yuedu_hl.png"
+      },
+      {
+        "pagePath": "pages/movie/movie",
+        "text": "电影频道",
+        "iconPath": "/images/tab/dianying.png",
+        "selectedIconPath": "/images/tab/dianying_hl.png"
+      }
+    ]
+  },
+  "requiredBackgroundModes": [
+    "audio"
+  ]
+}

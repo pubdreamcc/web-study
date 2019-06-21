@@ -1,0 +1,45 @@
+/* movie/movie.wxss */
+navigator{
+  position: relative;
+}
+.movieList{
+  display: flex;
+  padding: 20rpx;
+  border-bottom: 1rpx solid #eee;
+}
+.movieList image{
+  flex-shrink: 0;
+  width: 128rpx;
+  height: 128rpx;
+}
+.movieInfo{
+  margin-left: 10rpx;
+  flex-shrink: 0;
+  width: 79%;
+  display: flex;
+  flex-direction: column;
+}
+.movieTitle{
+  font-size: 32rpx;
+  font-weight: 700;
+  width: 70%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.movieYear{
+  font-size: 30rpx;
+  margin-top: 10rpx;
+}
+.movieDirector{
+  margin-top: 10rpx;
+  font-size: 30rpx;
+}
+.movieStar{
+  color: red;
+  font-size: 38rpx;
+  font-weight: 700;
+  position: absolute;
+  right: 40rpx;
+  top: 40rpx;
+}
