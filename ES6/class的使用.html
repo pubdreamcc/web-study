@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>class--类</title>
+</head>
+<body>
+  <script>
+    // ES6为我们提供了一种新的定义构造函数的方式 （类），这更像一种面向对象编程的方式
+
+    // 1. class基本使用
+    class Person{
+      constructor (name, age){
+        this.name = name
+        this.age = age // this指代实例对象
+      } // constructor是一种构造方法，用来接受参数
+      sayName () {
+        alert(`my name is ${this.name}`)
+      }
+    }
+
+    // 根据类生成实例对象
+    const p1 = new Person('cc', 24)
+    p1.sayName() // 我的名字是 cc
+    p1.name // cc
+    p1.age // 24
+  
+    /* 1.在类中声明方法的时候，千万不要给该方法加上function关键字
+      2.方法之间不要用逗号分隔，否则会报错
+     */
+    // 由下面代码可以看出类实质上就是一个函数。类自身指向的就是构造函数。所以可以认为ES6中的类其实就是构造函数的另外一种写法！
+    console.log(typeof Person) //function
+    console.log(Person === Person.prototype.constructor) //true
+
+
+    // 2. 类的继承
+    // 类继承使用关键字 extends 关键字
+    class B extends Person{
+      constructor (color) {
+        super("cc1", 25)  // 务必调用super方法，获取子类自己的this，否则会报错。一旦调用子类实例自动继承父类实例的所有属性和方法。可以在super函数里面传入子类实例对应的属性值
+        this.color = 'red'
+      }
+      sayName() {
+        console.log(`my name is ${this.name}`)
+      }
+    }
+    const p2 = new B()
+    console.log(p2) // {name: 'cc1', age: 25, color: 'red'}
+  </script>
+</body>
+</html>
