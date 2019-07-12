@@ -77,3 +77,5 @@
 * [React基础知识点](https://github.com/pubdreamcc/web-study/tree/master/React%E4%B8%93%E9%A2%98/React%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86)
 
 * [React发表评论案例](https://github.com/pubdreamcc/comment-demo)
+
+* [React全栈项目-后台管理系统](https://github.com/pubdreamcc/react-admin)
