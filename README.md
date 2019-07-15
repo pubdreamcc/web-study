@@ -72,6 +72,8 @@
 
 * [js常见设计模式](https://github.com/pubdreamcc/web-study/blob/master/js%E5%B8%B8%E8%A7%81%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/js%E5%B8%B8%E8%A7%81%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.md)
 
+* [js设计模式各个击破](https://github.com/MuYunyun/blog/tree/master/BasicSkill/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F)
+
 ## React专题
 
 * [React基础知识点](https://github.com/pubdreamcc/web-study/tree/master/React%E4%B8%93%E9%A2%98/React%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86)
