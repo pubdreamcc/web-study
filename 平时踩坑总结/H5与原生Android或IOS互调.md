@@ -51,3 +51,42 @@ export default {
 ```
 
 特别说明，当前端采用框架写的时候，比如 `Vue`，我们必须手动将 定义好的方法挂载到 `window` 对象上，因为在组件的内部定义的方法默认是在该组件实例上。
+
+小建议：
+
+针对前端采用 `Vue` 框架写代码的时候，可以定义一个 `app.js` 文件夹，用来保存和原生交互的方法。
+
+```js
+
+// app.js
+
+let hybrid = {
+  install: function (Vue) {
+    Vue.prototype.$app = this
+  }
+}
+// 将hybrid挂载在window
+window.hybrid = hybrid
+
+export default hybrid
+```
+
+在页面入口文件 `main.js` 中引入
+
+```js
+import Vue from 'vue'
+import hybrid from './app/app.js'
+
+Vue.use(hybrid) // 经过注册之后，其他的组件都可以通过 this.$app 访问到 hybrid
+```
+
+在需要导出方法给原生调用的组件中
+
+```js
+...
+mounted () {
+  // 把自己定义的方法传到 window 对象，供原生调用
+  this.$app.changeFingerPrint = this.changeFingerPrint // 自己定义在methods中的方法
+}
+...
+```
