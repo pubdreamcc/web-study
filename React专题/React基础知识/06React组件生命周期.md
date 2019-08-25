@@ -37,3 +37,7 @@
 2. `componentWillReceiveProps(nextProps)`：组件从父组件接收到新的 `props` 之前调用。
 3. `componentWillUpdate()`：组件开始重新渲染之前调用。
 4. `componentDidUpdate()`：组件重新渲染并且把更改变更到真实的 `DOM` 以后调用。
+
+## React 生命周期图解
+
+![React 生命周期钩子](https://images2017.cnblogs.com/blog/1106982/201708/1106982-20170811224737742-1564011484.jpg)

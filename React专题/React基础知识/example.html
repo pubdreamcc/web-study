@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>setState详解</title>
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+  <div id="app"></div>
+  <script type="text/babel">
+    class A extends React.Component {
+      state = {
+        count: 0
+      }
+      update1 = () => {
+        // this.setState({count: this.state.count+1}, () => {
+        //   console.log(this.state.count)
+        // })
+        // this.setState({count: this.state.count+1}, () => {
+        //   console.log(this.state.count)
+        // })
+        // this.setState({count: this.state.count+1}, () => {
+        //   console.log(this.state.count)
+        // })
+        this.setState((state) => ({
+          count: state.count+1
+        }), () => {
+          console.log(this.state.count)
+        })
+        this.setState((state) => ({
+          count: state.count+1
+        }), () => {
+          console.log(this.state.count)
+        })
+        this.setState((state) => ({
+          count: state.count+1
+        }), () => {
+          console.log(this.state.count)
+        })
+      }
+
+      update2 = () => {
+        setTimeout(() => {
+          this.setState(state => ({
+            count: state.count+1
+          }))
+          console.log(this.state.count)
+          this.setState(state => ({
+            count: state.count+1
+          }))
+          console.log(this.state.count)
+          this.setState(state => ({
+            count: state.count+1
+          }))
+          console.log(this.state.count)
+        })
+      }
+
+      update3 = () => {
+        Promise.resolve().then(value => {
+          this.setState({
+            count: 8
+          })
+          console.log(this.state.count)
+        })
+      }
+
+      componentWillMount () {
+        this.setState(state => ({
+          count: state.count+1
+        }))
+        console.log(this.state.count)
+      }
+
+      render () {
+        console.log('render()', this.state.count)
+        return (
+          <div>
+          <h1>{this.state.count}</h1>
+            <button onClick={this.update1} style={{marginRight: 15}}>测试1</button><button style={{marginRight: 15}} onClick={this.update2}>测试2</button><button onClick={this.update3}>测试3</button>
+          </div>         
+        )
+      }
+    }
+    ReactDOM.render(
+    <A/>,
+    document.getElementById('app')
+  )
+  </script>
+</body>
+</html>
