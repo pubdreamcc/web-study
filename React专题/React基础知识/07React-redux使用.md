@@ -134,3 +134,7 @@ SwitchColor = connect(mapStateToProps, mapDispatchToProps)(SwitchColor)
 ## 说明
 
 本篇文章 出自于 我们 `GitHub` 仓库 `web-study` ，详情可见：[戳这里](https://github.com/pubdreamcc/web-study)， 欢迎 `star`，一起交流学习前端。
+
+## react-redux 计数器案例
+
+为了巩固自己对 `redux`，`react-redux` 的理解和使用，特地写了一个计数器的案例demo
