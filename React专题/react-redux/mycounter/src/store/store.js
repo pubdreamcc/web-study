@@ -1,5 +1,6 @@
 // redux 核心 store 对象模块
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
+import thunk from 'redux-thunk'
 import {composeWithDevTools} from 'redux-devtools-extension'
-import {increase} from './reducers'
-export default createStore(increase, composeWithDevTools())
+import reducer from './reducers'
+export default createStore(reducer, composeWithDevTools(applyMiddleware(thunk)))

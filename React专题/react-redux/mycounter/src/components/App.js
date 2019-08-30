@@ -5,7 +5,8 @@ export default class App extends Component {
   static propTypes = {
     count: PropTypes.number.isRequired,
     increasement: PropTypes.func.isRequired,
-    decreasement: PropTypes.func.isRequired
+    decreasement: PropTypes.func.isRequired,
+    increasementAsync: PropTypes.func.isRequired
   }
   constructor (props) {
     super(props)
@@ -36,9 +37,7 @@ export default class App extends Component {
   increasementOfAsync = () => {
     // 更新store中的状态数据
     const number  =this.select.current.value * 1
-    setTimeout(() => {
-      this.props.increasement(number)      
-    }, 1000)
+    this.props.increasementAsync(number)      
   }
   render() {
     return (
