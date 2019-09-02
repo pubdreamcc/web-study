@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>鼠标点击事件练习</title>
+        <style type="text/css">
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            html,body, #wrap{
+                height: 100%;
+                overflow: hidden;
+            }
+
+            #wrap{
+                position: relative;
+            }
+
+            #wrap .cc {
+              height: 80px;
+              width: 120px;
+              text-align: center;
+              line-height: 80px;
+              border-radius: 30%;
+              transform: translate(-50%, -50%);
+              font-size: 18px;
+              font-weight: 800;
+              position: absolute;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+        </div>
+        <script>
+          let index = -1
+          document.getElementById('wrap').addEventListener('click', (e) => {
+            index += 1
+            if (index > 5) {
+              index = 0
+            }
+            // 获取鼠标点击的位置，相对于事件源元素（wrap）
+            e.preventDefault()
+            const initx = e.offsetX
+            const inity = e.offsetY
+            let curry = inity
+            let opacity = 1
+            let rgb = `(${Math.random()*255}, ${Math.random()*255}, ${Math.random()*255})`
+            let arr = ['1', '2', '3', '4', '5', '6']
+            // 在鼠标点击的位置生成一个div
+            const div = document.createElement('div')
+            div.style.backgroundColor = `rgb${rgb}` 
+            // div.innerHTML = arr[Math.round((Math.random()*10) / 2)]
+            div.innerHTML = arr[index]
+            div.style.left = `${initx}px`
+            div.style.top = `${inity}px`
+            // 将div 插入到 wrap中
+            document.getElementById('wrap').appendChild(div)
+            div.className = 'cc'
+            const timer = setInterval(() => {
+              curry -= 15
+              opacity -= 0.04
+              div.style.top = `${curry}px`
+              div.style.opacity = opacity
+              if ((inity - curry) > 300) {
+                document.getElementById('wrap').removeChild(div)
+                curry = opacity = rgb = arr = null
+                clearInterval(timer)
+              }
+            }, 1000/20)
+          }, false)
+        </script>
+    </body>
+</html>
