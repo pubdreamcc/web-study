@@ -88,4 +88,4 @@
 
 ## typescript
 
-* typescript基础知识
+* [typescript基础知识](https://github.com/pubdreamcc/web-study/blob/master/typescript/typescript%E5%9F%BA%E7%A1%80.md)
