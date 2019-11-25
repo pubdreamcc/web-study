@@ -188,3 +188,72 @@ var Days;
 })(Days || (Days = {}));
 ```
 
+## 泛型
+
+泛型（Generics）是指在定义函数、接口或类的时候，不预先指定具体的类型，而在使用的时候再指定类型的一种特性。
+
+### 泛型变量
+
+```typescript
+
+function getDate<T> (value: T): T {
+  return value;
+}
+
+getDate<number>(123); 
+getDate<string>('123');
+```
+
+### 泛型类
+
+```ts
+
+
+class MinClass<T> {
+  public list: T[] = [];
+  add(num: T): void{
+    this.list.push(num);
+  }
+
+  getMinNum (): T {
+    let minNum = this.list[0];
+    for (let i=0; i<this.list.length; i++) {
+      if (minNum > this.list[i]) {
+        minNum = this.list[i];
+      }
+    }
+    return minNum;
+  }
+}
+
+const m = MinClass<number>();
+m.add(123);
+m.add('1231'); // 报错
+m.getMinNum();
+```
+
+### 泛型接口
+
+```ts
+
+
+interface Configfunc {
+  <T>(value1: T, value2: T): T;
+}
+
+const funcccc: Configfunc = <T>(value1: T, value2: T): T => value1;
+
+funcccc<string>('123', '213');
+
+// 或者可以把泛型参数提前到接口名上
+
+interface Configfunc<T> {
+  (value1: T, value2: T): T;
+}
+
+const funcccc: Configfunc<number> = <T>(value1: T, value2: T): T => value1;
+
+funcccc(123, 1321); // 正确
+funcccc('123', '1321'); // 错误
+```
+
