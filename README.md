@@ -90,4 +90,4 @@
 
 * [typescript基础知识](https://github.com/pubdreamcc/web-study/blob/master/typescript/typescript%E5%9F%BA%E7%A1%80.md)
 
-## JS算法与数据结构
+## [JS算法与数据结构](https://github.com/pubdreamcc/web-study/tree/master/JS%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84)
